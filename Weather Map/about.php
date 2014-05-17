@@ -12,16 +12,16 @@
     <script src="http://code.jquery.com/jquery.js"></script>
 
     <!-- Bootstrap -->
-    <script src="/scripts/js/bootstrap.min.js"></script>
-    <link href="/style/css/bootstrap.css" rel="stylesheet" media="screen" />
+    <script src="scripts/js/bootstrap.min.js"></script>
+    <link href="style/css/bootstrap.css" rel="stylesheet" media="screen" />
 
     <!-- Style -->
-    <link href="/style/css/style.css" rel="stylesheet" />
-    <script src="/scripts/js/style.js" type="text/javascript"></script>
+    <link href="style/css/style.css" rel="stylesheet" />
+    <script src="scripts/js/style.js" type="text/javascript"></script>
 </head>
 <body>
-    <?php require('/includes/warnings.inc.php'); ?>
-    <?php require('/includes/navigation.inc.html'); ?>
+    <?php require('includes/warnings.inc.php'); ?>
+    <?php require('includes/navigation.inc.html'); ?>
 
     <div class="content">
         <div class="title-box text-center">
@@ -73,7 +73,7 @@
         </div>
     </div>
 
-    <?php require('/includes/footer.inc.html'); ?>
+    <?php require('includes/footer.inc.html'); ?>
 
     <!--
         ================================================== Scripts

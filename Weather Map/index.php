@@ -10,6 +10,7 @@
 
     <!-- jQuery -->
     <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="scripts/js/jquery.easing.min.js"></script>
 
     <!-- Bootstrap -->
     <script src="scripts/js/bootstrap.min.js"></script>
@@ -20,35 +21,51 @@
     <script src="scripts/js/style.js" type="text/javascript"></script>
 
     <!-- Flex Slider -->
-    <link rel="stylesheet" href="style/css/flexslider.css" type="text/css">
+    <link rel="stylesheet" href="style/css/flexslider.css" type="text/css" />
     <script src="scripts/js/jquery.flexslider.js"></script>
 
     <script type="text/javascript" charset="utf-8">
         $(window).load(function () {
-            $('.flexslider').flexslider();
+            $('.flexslider').flexslider({
+                slideshow: false,
+                animation: "slide",
+                easing: "easeInElastic",
+                animationLoop: true,
+                controlNav: "thumbnails"
+            });
         });
+
+        // easeInOutCubic
     </script>
 </head>
 <body>
     <?php
+
     // TODO: Debug flag
     $debug = false;
+
+    require_once('includes/warnings.inc.php');
+    require_once('includes/navigation.inc.html');
+
+    require_once('src/BusinessLogic/ConfigurationReader.php');
+
     ?>
 
-    <?php 
-    require('includes/warnings.inc.php');
-    require('includes/navigation.inc.html');
+    <?php
+
+
+
     ?>
 
     <div class="flexslider">
         <ul class="slides">
-            <li>
+            <li data-thumb="media/images/batman_ironman_spider-man.jpg">
                 <img src="media/images/batman_ironman_spider-man.jpg" />
                 Test
             </li>
-            <li>
+            <li data-thumb="media/images/kid_lolly_cat.jpg">
                 <img src="media/images/kid_lolly_cat.jpg" />
-                Test 2
+                <p class="flex-caption">Test 2</p>
             </li>
         </ul>
     </div>
