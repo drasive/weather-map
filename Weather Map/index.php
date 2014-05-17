@@ -14,30 +14,31 @@ $default_timezone = WeatherMap\BusinessLogic\ConfigurationReader::getTimezone();
 date_default_timezone_set($default_timezone);
 
 // Get the HTTP parameters
+$dateHttpParameter = $_GET['date'];
 $date = '';
+$dateString = '';
 
-if (isset($_GET['date'])) {
-    $dateHttpParameter = $_GET['date'];
-    if (WeatherMap\BusinessLogic\HttpParameterValidator::hasValue($dateHttpParameter)) {
-        $date = strtotime($dateHttpParameter);
-    }
+if (isset($dateHttpParameter) && WeatherMap\BusinessLogic\HttpParameterValidator::hasValue($dateHttpParameter)) {
+    $date = strtotime($dateHttpParameter);
 }
 
 if ($date == '') { // Date couldn't be obtained from HTTP parameter
     $date = time();
 }
 
+$dateString =  date('Y-m-d', $date);
+
 // Process HTTP parameters
-$dateString = '';
+$dayOfWeek = '';
 
 if (WeatherMap\DateTimeHelper::isToday($date)) {
-    $dateString = 'Today';
+    $dayOfWeek = 'Today';
 }
 else if (WeatherMap\DateTimeHelper::isTomorrow($date)) {
-    $dateString = 'Tomorrow';
+    $dayOfWeek = 'Tomorrow';
 }
 else {
-    $dateString = getdate($date)['weekday'];
+    $dayOfWeek = getdate($date)['weekday'];
 }
 
 ?>
@@ -48,7 +49,7 @@ else {
     <meta name="author" content="Dimitri Vranken" />
 
     <title>
-    <?php echo $dateString; ?> - Weather Map
+        <?php echo "$dayOfWeek - "; ?>Weather Map
     </title>
     <link rel="shortcut icon" href="media/icons/sun.ico" />
 
@@ -70,7 +71,7 @@ else {
 
     <script type="text/javascript" charset="utf-8">
         $(window).load(function () {
-            $('.flexslider').flexslider({
+            $(".flexslider").flexslider({
                 slideshow: false,
                 animation: "slide",
                 easing: "easeInElastic",
@@ -89,7 +90,7 @@ else {
 
     <?php
     if ($debug) {
-        echo 'Parsed date: ' . $dateString . ' (' . date('Y-m-d', $date) . ')';
+        echo "Parsed date: $dayOfWeek ($dateString)";
     }
     ?>
 
@@ -99,27 +100,34 @@ else {
         </div>
         <div class="container">
             <article>
-                <section>
-                    <div class="flexslider">
-                        <ul class="slides">
-                            <li>
-                                <h2>Conditions</h2>
-                                <img src="media/images/batman_ironman_spider-man.jpg" />
-                            </li>
-                            <li>
-                                <h2>Temperature</h2>
-                                <img src="media/images/kid_lolly_cat.jpg" />
-                            </li>
-                            <li>
-                                <h2>Wind</h2>
-                                <img src="media/images/kid_lolly_cat.jpg" />
-                            </li>
-                            <li>
-                                <h2>Pollen</h2>
-                                <img src="media/images/kid_lolly_cat.jpg" />
-                            </li>
-                        </ul>
-                    </div>
+                <section class="flexslider">
+                    <?php
+                    function generateMapImageElement($mapImageGeneratorUrl) {
+                        $parameterName = 'date';
+                        $parameterValue = $date;
+
+                        return "<img src='$mapImageGeneratorUrl?$parameterName=$parameterValue' />";
+                    }
+                    ?>
+
+                    <ul class="slides">
+                        <li>
+                            <h2>Conditions</h2>
+                            <?php echo generateMapImageElement('conditions_map.php'); ?>
+                        </li>
+                        <li>
+                            <h2>Temperature</h2>
+                            <?php echo generateMapImageElement('temperatures_map.php'); ?>
+                        </li>
+                        <li>
+                            <h2>Wind</h2>
+                            <?php echo generateMapImageElement('wind_map.php'); ?>
+                        </li>
+                        <li>
+                            <h2>Pollen</h2>
+                            <?php echo generateMapImageElement('pollen_maps.php'); ?>
+                        </li>
+                    </ul>
                 </section>
             </article>
         </div>
