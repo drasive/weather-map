@@ -1,6 +1,6 @@
 <?php namespace WeatherMap\DataAccess;
 
-class CsvReader {
+class CsvFileReader {
     
     public static function readFile($fileHandle, $maximumLineLength = 0, $valueDelimiter = ';') {
         $content = array();

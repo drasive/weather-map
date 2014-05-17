@@ -1,8 +1,9 @@
 <?php namespace WeatherMap\BusinessLogic;
 
        require_once('src/BusinessLogic/WeatherMapGenerator.php');
-       require_once('src/BusinessLogic/ConfigurationReader.php');
+       require_once('src/BusinessLogic/ConfigurationReader.php');       
        require_once('src/BusinessLogic/WeatherDataFromCsvBuilder.php');
+       require_once('src/DataAccess/CsvFileReader.php');
        require_once('src/UserInterface/ConditionsMapGenerator.php');
       
       class ConditionsMapGenerator extends WeatherMapGenerator {
@@ -17,7 +18,7 @@
               $webserviceURL = \WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceURL();
               // TODO: Fix read
               $weatherDataFile = file_get_contents($webserviceURL);
-              $weatherDataArray = \WeatherMap\DataAccess\CsvReader::readFile($weatherDataFile);
+              $weatherDataArray = \WeatherMap\DataAccess\CsvFileReader::readFile($weatherDataFile);
               $weatherData = \WeatherMap\BusinessLogic\WeatherDataFromCsvBuilder::buildWeatherData($weatherDataArray);
               
               // Generate map

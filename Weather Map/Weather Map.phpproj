@@ -40,7 +40,7 @@
     <Compile Include="src\Temperature.php" />
     <Compile Include="src\WeatherCondition.php" />
     <Compile Include="src\WeatherData.php" />
-    <Compile Include="src\DataAccess\CsvReader.php" />
+    <Compile Include="src\DataAccess\CsvFileReader.php" />
     <Compile Include="weather_generator.php" />
   </ItemGroup>
   <ItemGroup>
