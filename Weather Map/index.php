@@ -12,20 +12,16 @@
     <script src="http://code.jquery.com/jquery.js"></script>
 
     <!-- Bootstrap -->
-    <script src="scripts/javascript/bootstrap.min.js"></script>
+    <script src="scripts/js/bootstrap.min.js"></script>
     <link href="style/css/bootstrap.css" rel="stylesheet" media="screen" />
 
     <!-- Style -->
     <link href="style/css/style.css" rel="stylesheet" />
-    <script src="scripts/javascript/style.js" type="text/javascript"></script>
-
-    <!-- Cookies -->
-    <script src="scripts/javascript/jquery.cookies.min.js" type="text/javascript"></script>
-    <script src="scripts/javascript/storage.js" type="text/javascript"></script>
+    <script src="scripts/js/style.js" type="text/javascript"></script>
 
     <!-- Flex Slider -->
     <link rel="stylesheet" href="style/css/flexslider.css" type="text/css">
-    <script src="scripts/javascript/jquery.flexslider.js"></script>
+    <script src="scripts/js/jquery.flexslider.js"></script>
 
     <script type="text/javascript" charset="utf-8">
         $(window).load(function () {
