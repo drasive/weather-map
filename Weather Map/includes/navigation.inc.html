@@ -23,16 +23,24 @@
 
     function addDaysOfWeekMenuItems(navigationBar) {
         var basePageURL = "/index.php"
-        var amountOfDaysToList = 5;
+        var amountOfDaysToList = 6;
         var daysOfWeek = getDaysOfWeek();
 
         var menuItems = [];
         var today = new Date();
-        for (var menuItemIndex = 1; menuItemIndex < amountOfDaysToList + 1; menuItemIndex++) {
+        for (var menuItemIndex = 0; menuItemIndex < amountOfDaysToList; menuItemIndex++) {
             var menuItemDay = new Date();
-            menuItemDay.setDate(today.getDate() + menuItemIndex);
+            menuItemDay.setDate(today.getDate() + menuItemIndex + 1);
 
-            menuItems.push('<li><a href="' + basePageURL + '?date=' + formatDate(menuItemDay) + '">' + daysOfWeek[menuItemDay.getDay()] + '</a></li>');
+            var menutItemName;
+            if (menuItemIndex === 0) {
+                menutItemName = "Tomorrow";
+            }
+            else {
+                menutItemName = daysOfWeek[menuItemDay.getDay()];
+            }
+
+            menuItems.push('<li><a href="' + basePageURL + '?date=' + formatDate(menuItemDay) + '">' + menutItemName + '</a></li>');
         };
 
         navigationBar.append(menuItems.join(''));
