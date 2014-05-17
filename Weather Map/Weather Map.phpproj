@@ -24,6 +24,7 @@
     <Compile Include="includes\warnings.inc.php" />
     <Compile Include="index.php" />
     <Compile Include="src\BusinessLogic\ConditionsMapGenerator.php" />
+    <Compile Include="src\BusinessLogic\WeatherDataFromCsvBuilder.php" />
     <Compile Include="src\BusinessLogic\WeatherMapGenerator.php" />
     <Compile Include="src\Pollination.php" />
     <Compile Include="src\CardinalDirection.php" />
