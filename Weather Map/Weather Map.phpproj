@@ -25,6 +25,8 @@
     <Compile Include="src\BusinessLogic\ConfigurationReader.php" />
     <Compile Include="src\BusinessLogic\WeatherMapGenerator.php" />
     <Compile Include="src\DataAccess\ConfigurationReader.php" />
+    <Compile Include="src\BusinessLogic\HttpParameterValidator.php" />
+    <Compile Include="src\DateTimeHelper.php" />
     <Compile Include="src\RegionInformation.php" />
     <Compile Include="src\DataAccess\CsvReader.php" />
     <Compile Include="src\UserInterface\WeatherMapGenerator.php" />
@@ -73,6 +75,10 @@
     <Content Include="style\css\flexslider.css" />
     <Content Include="style\css\style.css" />
     <Content Include="style\css\style.less" />
+    <Content Include="style\fonts\flexslider-icon.eot" />
+    <Content Include="style\fonts\flexslider-icon.svg" />
+    <Content Include="style\fonts\flexslider-icon.ttf" />
+    <Content Include="style\fonts\flexslider-icon.woff" />
     <Content Include="style\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="style\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="style\fonts\glyphicons-halflings-regular.ttf" />
