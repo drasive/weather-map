@@ -25,14 +25,20 @@
     <Compile Include="index.php" />
     <Compile Include="src\BusinessLogic\ConditionsMapGenerator.php" />
     <Compile Include="src\BusinessLogic\WeatherMapGenerator.php" />
+    <Compile Include="src\Pollination.php" />
+    <Compile Include="src\CardinalDirection.php" />
+    <Compile Include="src\Wind.php" />
     <Compile Include="src\UserInterface\WeatherMapGenerator.php" />
     <Compile Include="conditions_map.php" />
     <Compile Include="src\BusinessLogic\ConfigurationReader.php" />
     <Compile Include="src\UserInterface\ConditionsMapGenerator.php" />
     <Compile Include="src\DataAccess\ConfigurationReader.php" />
     <Compile Include="src\BusinessLogic\HttpParameterValidator.php" />
-    <Compile Include="src\DateTimeHelper.php" />
-    <Compile Include="src\RegionInformation.php" />
+    <Compile Include="src\BusinessLogic\DateTimeHelper.php" />
+    <Compile Include="src\Region.php" />
+    <Compile Include="src\Temperature.php" />
+    <Compile Include="src\WeatherCondition.php" />
+    <Compile Include="src\WeatherData.php" />
     <Compile Include="src\DataAccess\CsvReader.php" />
     <Compile Include="weather_generator.php" />
   </ItemGroup>
