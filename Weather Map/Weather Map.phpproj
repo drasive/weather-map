@@ -53,6 +53,7 @@
     <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="unavailable.html" />
     <Content Include="includes\footer.inc.html" />
     <Content Include="includes\javascript_off_warning.inc.html" />
     <Content Include="includes\navigation.inc.html" />
