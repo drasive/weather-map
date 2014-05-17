@@ -1,11 +1,55 @@
 <!DOCTYPE html>
 
+<?php
+// TODO: Debug flag
+$debug = true;
+
+// Includes
+require_once('src/DateTimeHelper.php');
+require_once('src/BusinessLogic/ConfigurationReader.php');
+require_once('src/BusinessLogic/HttpParameterValidator.php');
+
+// Configure the default timezone
+$default_timezone = WeatherMap\BusinessLogic\ConfigurationReader::getTimezone();
+date_default_timezone_set($default_timezone);
+
+// Get the HTTP parameters
+$date = '';
+
+if (isset($_GET['date'])) {
+    $dateHttpParameter = $_GET['date'];
+    if (WeatherMap\BusinessLogic\HttpParameterValidator::hasValue($dateHttpParameter)) {
+        $date = strtotime($dateHttpParameter);
+    }
+}
+
+if ($date == '') { // Date couldn't be obtained from HTTP parameter
+    $date = time();
+}
+
+// Process HTTP parameters
+$dateString = '';
+
+if (WeatherMap\DateTimeHelper::isToday($date)) {
+    $dateString = 'Today';
+}
+else if (WeatherMap\DateTimeHelper::isTomorrow($date)) {
+    $dateString = 'Tomorrow';
+}
+else {
+    $dateString = getdate($date)['weekday'];
+}
+
+?>
+
 <html>
 <head>
     <meta charset="UTF-8" />
     <meta name="author" content="Dimitri Vranken" />
 
-    <title>Wetterkarte</title>
+    <title>
+    <?php echo $dateString; ?> - Weather Map
+    </title>
     <link rel="shortcut icon" href="media/icons/sun.ico" />
 
     <!-- jQuery -->
@@ -42,12 +86,11 @@
     require_once('includes/warnings.inc.php');
     require_once('includes/navigation.inc.html');
     ?>
-    
+
     <?php
-    // TODO: Debug flag
-    $debug = false;
-        
-    require_once('src/BusinessLogic/ConfigurationReader.php');
+    if ($debug) {
+        echo 'Parsed date: ' . $dateString . ' (' . date('Y-m-d', $date) . ')';
+    }
     ?>
 
     <div class="content">
@@ -81,5 +124,7 @@
             </article>
         </div>
     </div>
+
+    <?php require_once('includes/footer.inc.html'); ?>
 </body>
 </html>

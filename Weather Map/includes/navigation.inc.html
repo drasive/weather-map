@@ -47,7 +47,21 @@
     }
 
     function formatDate(date) {
-        return date.toISOString();
+        var yyyy = padNumber(date.getFullYear(), 4);
+        var mm = padNumber(date.getMonth() + 1, 2);
+        var dd = padNumber(date.getDate(), 2);
+
+        return yyyy + "-" + mm + "-" + dd;
+    }
+
+    function padNumber(number, minimumLength) {
+        number = number.toString();
+
+        while (number.length < minimumLength) {
+            number = "0" + number;
+        }
+
+        return number;
     }
 
     function getDaysOfWeek() {
