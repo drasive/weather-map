@@ -5,14 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Dimitri Vranken" />
 
-    <title>Über - Formular-Generator</title>
+    <title>Über - Wetterkarte</title>
     <link rel="shortcut icon" href="/media/icons/form.ico">
 
+    <!-- jQuery -->
     <script src="http://code.jquery.com/jquery.js"></script>
 
+    <!-- Bootstrap -->
     <script src="/scripts/js/bootstrap.min.js"></script>
     <link href="/style/css/bootstrap.css" rel="stylesheet" media="screen" />
 
+    <!-- Style -->
     <link href="/style/css/style.css" rel="stylesheet" />
     <script src="/scripts/js/style.js" type="text/javascript"></script>
 </head>
@@ -30,7 +33,7 @@
                     <h2>Was</h2>
                     <h3>Funktion</h3>
                     <p>
-                        Das Generieren von HTML5-Eingabeformularen. Die benötigten Felder und Attribute werden aus einer MySql Tabelle ausgelesen.
+                        Das Generieren von Wetterkarten. Die benötigten Informationen werden von einem Webservice bereitgestellt.
                     </p>
                     <h3>Technik</h3>
                     <p>
@@ -41,7 +44,7 @@
                 <section>
                     <h2>Warum</h2>
                     <p>
-                        Das Erstellen eines HTML-Formular-Generators war ein Semesterbegleitender Kompetenznachsweis im Modul 307 der <a href="http://home.gibm.ch/">Gewerblich-industriellen Berufsfachschule Muttenz</a>.
+                        Das Erstellen eines Wetterkarten-Generators war ein Semesterbegleitender Kompetenznachsweis im Modul 307 der <a href="http://home.gibm.ch/">Gewerblich-industriellen Berufsfachschule Muttenz</a>.
                     </p>
                 </section>
                 <section>
