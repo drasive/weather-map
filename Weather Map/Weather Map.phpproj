@@ -22,10 +22,11 @@
     <Compile Include="error.php" />
     <Compile Include="includes\warnings.inc.php" />
     <Compile Include="index.php" />
-    <Compile Include="src\BusinessLogic\RegionInformation.php" />
+    <Compile Include="src\BusinessLogic\WeatherMapGenerator.php" />
+    <Compile Include="src\RegionInformation.php" />
     <Compile Include="src\DataAccess\CsvReader.php" />
     <Compile Include="src\UserInterface\WeatherMapGenerator.php" />
-    <Compile Include="weather generator.php" />
+    <Compile Include="weather_generator.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="includes\" />
@@ -33,7 +34,7 @@
     <Folder Include="media\icons\" />
     <Folder Include="media\images\" />
     <Folder Include="scripts\" />
-    <Folder Include="scripts\javascript\" />
+    <Folder Include="scripts\js\" />
     <Folder Include="src\DataAccess\" />
     <Folder Include="src\BusinessLogic\" />
     <Folder Include="src\UserInterface\" />
@@ -50,14 +51,14 @@
     <Content Include="media\images\batman_ironman_spider-man.jpg" />
     <Content Include="media\images\kid_lolly_cat.jpg" />
     <Content Include="media\images\switzerland_map.jpg" />
-    <Content Include="scripts\javascript\bootstrap.js" />
-    <Content Include="scripts\javascript\bootstrap.min.js" />
-    <Content Include="scripts\javascript\jquery.cookies.js" />
-    <Content Include="scripts\javascript\jquery.cookies.min.js" />
-    <Content Include="scripts\javascript\jquery.flexslider-min.js" />
-    <Content Include="scripts\javascript\jquery.flexslider.js" />
-    <Content Include="scripts\javascript\storage.js" />
-    <Content Include="scripts\javascript\style.js" />
+    <Content Include="scripts\js\bootstrap.js" />
+    <Content Include="scripts\js\bootstrap.min.js" />
+    <Content Include="scripts\js\jquery.cookies.js" />
+    <Content Include="scripts\js\jquery.cookies.min.js" />
+    <Content Include="scripts\js\jquery.flexslider-min.js" />
+    <Content Include="scripts\js\jquery.flexslider.js" />
+    <Content Include="scripts\js\storage.js" />
+    <Content Include="scripts\js\style.js" />
     <Content Include="style\css\bootstrap-theme.css" />
     <Content Include="style\css\bootstrap-theme.css.map" />
     <Content Include="style\css\bootstrap-theme.min.css" />
