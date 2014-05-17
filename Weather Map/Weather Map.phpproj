@@ -9,6 +9,7 @@
     <!-- important to be opened by PHP Tools, when also Phalanger Tools are installed -->
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
     <AssemblyName>Wetterkarte</AssemblyName>
+    <StartupFile>conditions_map.php</StartupFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <IncludeDebugInformation>true</IncludeDebugInformation>
@@ -22,14 +23,17 @@
     <Compile Include="error.php" />
     <Compile Include="includes\warnings.inc.php" />
     <Compile Include="index.php" />
-    <Compile Include="src\BusinessLogic\ConfigurationReader.php" />
+    <Compile Include="src\BusinessLogic\ConditionsMapGenerator.php" />
     <Compile Include="src\BusinessLogic\WeatherMapGenerator.php" />
+    <Compile Include="src\UserInterface\WeatherMapGenerator.php" />
+    <Compile Include="conditions_map.php" />
+    <Compile Include="src\BusinessLogic\ConfigurationReader.php" />
+    <Compile Include="src\UserInterface\ConditionsMapGenerator.php" />
     <Compile Include="src\DataAccess\ConfigurationReader.php" />
     <Compile Include="src\BusinessLogic\HttpParameterValidator.php" />
     <Compile Include="src\DateTimeHelper.php" />
     <Compile Include="src\RegionInformation.php" />
     <Compile Include="src\DataAccess\CsvReader.php" />
-    <Compile Include="src\UserInterface\WeatherMapGenerator.php" />
     <Compile Include="weather_generator.php" />
   </ItemGroup>
   <ItemGroup>
