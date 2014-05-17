@@ -5,7 +5,7 @@
 $debug = true;
 
 // Includes
-require_once('src/DateTimeHelper.php');
+require_once('src/BusinessLogic/DateTimeHelper.php');
 require_once('src/BusinessLogic/ConfigurationReader.php');
 require_once('src/BusinessLogic/HttpParameterValidator.php');
 
@@ -31,10 +31,10 @@ $dateString =  date('Y-m-d', $date);
 // Process HTTP parameters
 $dayOfWeek = '';
 
-if (WeatherMap\DateTimeHelper::isToday($date)) {
+if (WeatherMap\BusinessLogic\DateTimeHelper::isToday($date)) {
     $dayOfWeek = 'Today';
 }
-else if (WeatherMap\DateTimeHelper::isTomorrow($date)) {
+else if (WeatherMap\BusinessLogic\DateTimeHelper::isTomorrow($date)) {
     $dayOfWeek = 'Tomorrow';
 }
 else {
@@ -124,8 +124,8 @@ else {
                             <?php echo generateMapImageElement('wind_map.php'); ?>
                         </li>
                         <li>
-                            <h2>Pollen</h2>
-                            <?php echo generateMapImageElement('pollen_maps.php'); ?>
+                            <h2>Pollination</h2>
+                            <?php echo generateMapImageElement('pollination_maps.php'); ?>
                         </li>
                     </ul>
                 </section>
