@@ -8,11 +8,55 @@
             <a class="navbar-brand">Dimitri V.</a>
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a id="nav_form_generator" href="/generate_input_form.php">Today</a></li>
-                // TODO: Insert the other days in the future
-                <li><a id="nav_about" href="/about.php">Über</a></li>
+            <ul id="navigationBar" class="nav navbar-nav">
+                <li><a id="nav_form_generator" href="/index.php">Today</a></li>
             </ul>
         </div>
     </div>
 </header>
+
+<script type="text/javascript">
+    var navigationBar = $('#navigationBar');
+    addDaysOfWeekMenuItems(navigationBar);
+    addAboutMenuItem(navigationBar);
+
+
+    function addDaysOfWeekMenuItems(navigationBar) {
+        var basePageURL = "/index.php"
+        var amountOfDaysToList = 5;
+        var daysOfWeek = getDaysOfWeek();
+
+        var menuItems = [];
+        var today = new Date();
+        for (var menuItemIndex = 1; menuItemIndex < amountOfDaysToList + 1; menuItemIndex++) {
+            var menuItemDay = new Date();
+            menuItemDay.setDate(today.getDate() + menuItemIndex);
+
+            menuItems.push('<li><a href="' + basePageURL + '?date=' + formatDate(menuItemDay) + '">' + daysOfWeek[menuItemDay.getDay()] + '</a></li>');
+        };
+
+        navigationBar.append(menuItems.join(''));
+    }
+
+    function formatDate(date) {
+        return date.toISOString();
+    }
+
+    function getDaysOfWeek() {
+        var daysOfWeek = new Array(7);
+        daysOfWeek[0] = "Sunday";
+        daysOfWeek[1] = "Monday";
+        daysOfWeek[2] = "Tuesday";
+        daysOfWeek[3] = "Wednesday";
+        daysOfWeek[4] = "Thursday";
+        daysOfWeek[5] = "Friday";
+        daysOfWeek[6] = "Saturday";
+
+        return daysOfWeek;
+    }
+   
+    
+    function addAboutMenuItem(navigationBar) {
+        navigationBar.append('<li><a id="nav_about" href="/about.php">About</a></li>');
+    }
+</script>
