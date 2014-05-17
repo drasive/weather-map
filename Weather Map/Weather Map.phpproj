@@ -25,7 +25,7 @@
     <Compile Include="src\BusinessLogic\RegionInformation.php" />
     <Compile Include="src\DataAccess\CsvReader.php" />
     <Compile Include="src\UserInterface\WeatherMapGenerator.php" />
-    <Compile Include="wetter.php" />
+    <Compile Include="weather generator.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="includes\" />
