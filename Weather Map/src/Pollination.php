@@ -1,6 +1,6 @@
 <?php namespace WeatherMap;
       
-      abstract class CardinalDirection {
+      abstract class Pollination {
           const None = 0;
           const Weak = 1;
           const Moderate = 2;

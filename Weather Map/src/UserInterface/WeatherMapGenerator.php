@@ -20,7 +20,7 @@
           }    
           
           // Public methods
-          public abstract function generateMap();
+          public abstract function generateMap($weatherData);
           
       }
       

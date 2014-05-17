@@ -19,7 +19,7 @@
           }
 
           // Public methods
-          public function generateMap() {
+          public function generateMap($weatherData) {
               $background = imagecreatefromjpeg('media/images/switzerland_map.jpg');
 
               // TODO:

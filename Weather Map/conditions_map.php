@@ -16,7 +16,6 @@ $map = $mapGenerator->generateMap();
 
 // Set the HTTP headers
 header("Content-Type: image/jpg");
-header("Content-Length: " . 10000);
 
 // Return the map
 imagejpeg($map);

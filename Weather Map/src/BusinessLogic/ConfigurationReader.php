@@ -15,12 +15,12 @@
           
           // General section
           public static function getTimezone(){ 
-              return \WeatherMap\DataAccess\ConfigurationReader::readIniFile($m_configurationFile, true)[$m_section_general][$m_timezone];
+              return \WeatherMap\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_section_general][self::$m_timezone];
           }
           
           // Webservice section
           public static function getWebserviceURL(){ 
-              return \WeatherMap\DataAccess\ConfigurationReader::readIniFile($m_configurationFile, true)[$m_section_webservice][$m_webservice_URL];
+              return \WeatherMap\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_section_webservice][self::$m_webservice_URL];
           }
           
       }
