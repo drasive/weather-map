@@ -6,18 +6,20 @@
     <meta name="author" content="Dimitri Vranken" />
 
     <title>Error - Formular-Generator</title>
-    <link rel="shortcut icon" href="/media/icons/form.ico">
+    <link rel="shortcut icon" href="media/icons/sun.ico">
 
     <script src="http://code.jquery.com/jquery.js"></script>
 
-    <script src="/scripts/js/bootstrap.min.js"></script>
-    <link href="/style/css/bootstrap.css" rel="stylesheet" media="screen" />
+    <script src="scripts/js/bootstrap.min.js"></script>
+    <link href="style/css/bootstrap.css" rel="stylesheet" media="screen" />
 
-    <link href="/style/css/style.css" rel="stylesheet" />
+    <link href="style/css/style.css" rel="stylesheet" />
 </head>
 <body>
-    <?php require('/includes/warnings.inc.php'); ?>
-    <?php require('/includes/navigation.inc.html'); ?>
+    <?php
+    require_once('includes/warnings.inc.php');
+    require_once('includes/navigation.inc.html');
+    ?>
 
     <div class="content">
         <div class="container special-content">
@@ -42,6 +44,6 @@
         </div>
     </div>
 
-    <?php require('/includes/footer.inc.html'); ?>
+    <?php require_once('includes/footer.inc.html'); ?>
 </body>
 </html>

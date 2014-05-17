@@ -50,6 +50,7 @@
     <Content Include="includes\footer.inc.html" />
     <Content Include="includes\javascript_off_warning.inc.html" />
     <Content Include="includes\navigation.inc.html" />
+    <Content Include="media\icons\sun.ico" />
     <Content Include="media\images\batman_ironman_spider-man.jpg" />
     <Content Include="media\images\kid_lolly_cat.jpg" />
     <Content Include="media\images\switzerland_map.jpg" />

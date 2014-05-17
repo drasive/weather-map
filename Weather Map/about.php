@@ -6,7 +6,7 @@
     <meta name="author" content="Dimitri Vranken" />
 
     <title>Über - Wetterkarte</title>
-    <link rel="shortcut icon" href="/media/icons/form.ico">
+    <link rel="shortcut icon" href="media/icons/sun.ico">
 
     <!-- jQuery -->
     <script src="http://code.jquery.com/jquery.js"></script>
@@ -20,8 +20,10 @@
     <script src="scripts/js/style.js" type="text/javascript"></script>
 </head>
 <body>
-    <?php require('includes/warnings.inc.php'); ?>
-    <?php require('includes/navigation.inc.html'); ?>
+    <?php 
+    require_once('includes/warnings.inc.php');
+    require_once('includes/navigation.inc.html'); 
+    ?>
 
     <div class="content">
         <div class="title-box text-center">
@@ -73,7 +75,7 @@
         </div>
     </div>
 
-    <?php require('includes/footer.inc.html'); ?>
+    <?php require_once('includes/footer.inc.html'); ?>
 
     <!--
         ================================================== Scripts
