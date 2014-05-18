@@ -27,7 +27,7 @@
                       return \WeatherMap\Region::Zurich;
                   case 6:
                       return \WeatherMap\Region::Berne;
-                  case 6:
+                  case 7:
                       return \WeatherMap\Region::Basle;   
               }
           }
