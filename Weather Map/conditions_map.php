@@ -4,6 +4,8 @@
 require_once('src/BusinessLogic/ConditionsMapGenerator.php');
 
 // Get the HTTP parameters
+// TODO: Cceck if date smaller than today or bigger than allowed -> use today (currect URL if possible)
+
 $dateHttpParameter = $_GET['date'];
 
 if (isset($dateHttpParameter) && \WeatherMap\BusinessLogic\HttpParameterValidator::hasValue($dateHttpParameter)) {

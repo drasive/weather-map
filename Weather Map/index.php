@@ -14,9 +14,10 @@ $default_timezone = \WeatherMap\BusinessLogic\ConfigurationReader::getTimezone()
 date_default_timezone_set($default_timezone);
 
 // Get the HTTP parameters
+// TODO: Cceck if date smaller than today or bigger than allowed -> use today (currect URL if possible)
+
 $dateHttpParameter = $_GET['date'];
 $date = '';
-$dateString = '';
 
 if (isset($dateHttpParameter) && \WeatherMap\BusinessLogic\HttpParameterValidator::hasValue($dateHttpParameter)) {
     $date = strtotime($dateHttpParameter);
@@ -26,19 +27,19 @@ if ($date == '') { // Date couldn't be obtained from HTTP parameter
     $date = time();
 }
 
-$dateString = date('Y-m-d', $date);
-
-// Process HTTP parameters
-$dayOfWeek = '';
+// Process the HTTP parameters
+$dateISO8601 = date('Y-m-d', $date);
+$dateHumanReadable = date('d. M Y', $date);
+$dateDayOfWeek = '';
 
 if (\WeatherMap\BusinessLogic\DateTimeHelper::isToday($date)) {
-    $dayOfWeek = 'Today';
+    $dateDayOfWeek = 'Today';
 }
 else if (\WeatherMap\BusinessLogic\DateTimeHelper::isTomorrow($date)) {
-    $dayOfWeek = 'Tomorrow';
+    $dateDayOfWeek = 'Tomorrow';
 }
 else {
-    $dayOfWeek = getdate($date)['weekday'];
+    $dateDayOfWeek = getdate($date)['weekday'];
 }
 
 ?>
@@ -49,7 +50,7 @@ else {
     <meta name="author" content="Dimitri Vranken" />
 
     <title>
-        <?php echo "$dayOfWeek - "; ?>Weather Map
+        <?php echo "$dateDayOfWeek - "; ?>Weather Map
     </title>
     <link rel="shortcut icon" href="media/icons/sun.ico" />
 
@@ -90,14 +91,14 @@ else {
 
     <?php
     if (WeatherMap\BusinessLogic\ConfigurationReader::getDebugMode()) {
-        echo "Parsed date: $dayOfWeek ($dateString)";
+        echo "Parsed date: $dateDayOfWeek ($dateISO8601)";
     }
     ?>
 
     <div class="content">
         <div class="title-box text-center">
             <h1>
-                <?php echo $dayOfWeek; ?>
+                <?php echo "$dateDayOfWeek, $dateHumanReadable"; ?>
             </h1>
         </div>
         <div class="container">
@@ -106,8 +107,8 @@ else {
                     <?php
                     function generateMapImageElement($mapImageGeneratorUrl) {
                         $parameterName = 'date';
-                        global $dateString;
-                        $parameterValue = $dateString;
+                        global $dateISO8601;
+                        $parameterValue = $dateISO8601;
 
                         return "<img src='$mapImageGeneratorUrl?$parameterName=$parameterValue' />";
                     }
@@ -115,19 +116,19 @@ else {
 
                     <ul class="slides">
                         <li>
-                            <h2>Conditions</h2>
+                            <h2 class="image-title">Conditions</h2>
                             <?php echo generateMapImageElement('conditions_map.php'); ?>
                         </li>
                         <li>
-                            <h2>Temperature</h2>
+                            <h2 class="image-title">Temperature</h2>
                             <?php //echo generateMapImageElement('temperatures_map.php'); ?>
                         </li>
                         <li>
-                            <h2>Wind</h2>
+                            <h2 class="image-title">Wind</h2>
                             <?php //echo generateMapImageElement('wind_map.php'); ?>
                         </li>
                         <li>
-                            <h2>Pollination</h2>
+                            <h2 class="image-title">Pollination</h2>
                             <?php //echo generateMapImageElement('pollination_maps.php'); ?>
                         </li>
                     </ul>
