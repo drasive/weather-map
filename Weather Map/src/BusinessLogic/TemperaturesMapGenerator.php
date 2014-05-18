@@ -23,14 +23,14 @@
               // Filter data
               $weatherData = array();
               foreach ($weatherDataUnfiltered as $currentWeatherData) {
-                  if ($date == $this->date) {
+                  if ($currentWeatherData->date == $date) {
                       array_push($weatherData, $currentWeatherData);
                   }
               }
 
               // Generate map
               $mapGenerator = new \WeatherMap\UserInterface\TemperaturesMapGenerator($weatherData);
-              $map = $mapGenerator->generateMap();
+              $map = $mapGenerator->generateMap($weatherData);
 
               // Return map
               return $map;

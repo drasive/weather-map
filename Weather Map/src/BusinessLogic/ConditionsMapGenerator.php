@@ -30,7 +30,7 @@
 
               // Generate map
               $mapGenerator = new \WeatherMap\UserInterface\ConditionsMapGenerator($weatherData);
-              $map = $mapGenerator->generateMap();
+              $map = $mapGenerator->generateMap($weatherData);
 
               // Return map
               return $map;

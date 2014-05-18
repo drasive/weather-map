@@ -31,7 +31,7 @@
           }
           
           // Public methods
-          public function generateMap() {
+          public function generateMap($weatherData) {
               $background = parent::getBackgroundImage();
 
               foreach ($weatherData as $currentWeatherData) {
