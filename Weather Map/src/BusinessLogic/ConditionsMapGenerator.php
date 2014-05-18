@@ -16,7 +16,7 @@
 
           // Public methods
           public function generateMap() {
-              // Get raw data
+              // Get all raw data
               $weatherDataReader = new \WeatherMap\DataAccess\WebsiteWeatherDataReader();
               $weatherDataSource = \WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceURL();
               $weatherDataUnparsed = $weatherDataReader->readWeatherData($weatherDataSource);
@@ -24,11 +24,23 @@
               if (\WeatherMap\BusinessLogic\ConfigurationReader::getDebugMode()) {
                   // TODO: Print debug information
               }
-
+              
               // Parse data
               $weatherDataBuilder = new \WeatherMap\BusinessLogic\ArrayWeatherDataBuilder();
-              $weatherData = $weatherDataBuilder->buildWeatherData($weatherDataUnparsed);
+              $weatherDataUnfiltered = $weatherDataBuilder->buildWeatherData($weatherDataUnparsed);
 
+              if (\WeatherMap\BusinessLogic\ConfigurationReader::getDebugMode()) {
+                  // TODO: Print debug information
+              }
+              
+              // Filter data
+              $weatherData = array();
+              foreach ($weatherDataUnfiltered as $currentWeatherData) {
+                  if ($currentWeatherData->date == $this->date) {
+                      array_push($weatherData, $currentWeatherData);
+                  }
+              }
+              
               if (\WeatherMap\BusinessLogic\ConfigurationReader::getDebugMode()) {
                   // TODO: Print debug information
               }

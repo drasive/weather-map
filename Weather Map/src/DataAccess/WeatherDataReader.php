@@ -2,6 +2,7 @@
 
       abstract class WeatherDataReader {
           
+          // Documentaion: Gets raw data and converts it
           public abstract function readWeatherData($source);
           
       }

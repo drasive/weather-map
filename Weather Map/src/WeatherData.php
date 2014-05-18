@@ -3,6 +3,7 @@
       class WeatherData {
           
           // Protected variables
+          protected $date;
           protected $region;
           protected $weatherCondition;
           protected $temperature;
@@ -17,7 +18,8 @@
           }
           
           // Public constructors
-          public function __construct($region, $weatherCondition, $temperature, $wind, $pollination) {
+          public function __construct($date, $region, $weatherCondition, $temperature, $wind, $pollination) {
+              $this->date = $date;
               $this->region = $region;
               $this->weatherCondition = $weatherCondition;
               $this->temperature = $temperature;

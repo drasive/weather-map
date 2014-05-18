@@ -9,6 +9,7 @@ $dateHttpParameter = $_GET['date'];
 if (isset($dateHttpParameter) && \WeatherMap\BusinessLogic\HttpParameterValidator::hasValue($dateHttpParameter)) {
     $date = strtotime($dateHttpParameter);
 }
+// TODO: Else -> throw exception or something
 
 // Generate the map
 $mapGenerator = new \WeatherMap\BusinessLogic\ConditionsMapGenerator($date);

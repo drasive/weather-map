@@ -13,6 +13,11 @@
       class ArrayWeatherDataBuilder extends WeatherDataBuilder {
           
           // Protected variables
+          protected static function parseDate($dateAsString) {
+              return strtotime($dateAsString);
+          }
+          
+          
           protected static function parseRegion($regionAsInteger) {
               switch ($regionAsInteger) {
                   case 1:
@@ -112,13 +117,14 @@
               $weatherData = array();
               
               foreach($dataAsArray as $row) {
+                  $date = self::parseDate($row[0]);
                   $region = self::parseRegion($row[1]);
                   $weatherCondition = self::parseWeatherCondition($row[2]);
                   $temperature = self::parseTemperature($row[3]);
                   $wind = self::parseWind($row[4]);
                   $pollination = self::parsePollination($row[5]);
                   
-                  $currentWeatherData = new \WeatherMap\WeatherData($region, $weatherCondition, $temperature, $wind, $pollination);
+                  $currentWeatherData = new \WeatherMap\WeatherData($date, $region, $weatherCondition, $temperature, $wind, $pollination);
                   array_push($weatherData, $currentWeatherData);
               }
               

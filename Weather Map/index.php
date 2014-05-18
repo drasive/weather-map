@@ -26,7 +26,7 @@ if ($date == '') { // Date couldn't be obtained from HTTP parameter
     $date = time();
 }
 
-$dateString =  date('Y-m-d', $date);
+$dateString = date('Y-m-d', $date);
 
 // Process HTTP parameters
 $dayOfWeek = '';
@@ -106,7 +106,8 @@ else {
                     <?php
                     function generateMapImageElement($mapImageGeneratorUrl) {
                         $parameterName = 'date';
-                        $parameterValue = $date;
+                        global $dateString;
+                        $parameterValue = $dateString;
 
                         return "<img src='$mapImageGeneratorUrl?$parameterName=$parameterValue' />";
                     }
