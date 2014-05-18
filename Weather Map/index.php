@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
 <?php
-// TODO: Debug flag
-$debug = true;
+// TODO: Check if the webservice can be reached or show an error
+
 
 // Includes
 require_once('src/BusinessLogic/DateTimeHelper.php');
@@ -89,14 +89,16 @@ else {
     ?>
 
     <?php
-    if ($debug) {
+    if (WeatherMap\BusinessLogic\ConfigurationReader::getDebugMode()) {
         echo "Parsed date: $dayOfWeek ($dateString)";
     }
     ?>
 
     <div class="content">
         <div class="title-box text-center">
-            <h1>Today</h1>
+            <h1>
+                <?php echo $dayOfWeek; ?>
+            </h1>
         </div>
         <div class="container">
             <article>
@@ -117,15 +119,15 @@ else {
                         </li>
                         <li>
                             <h2>Temperature</h2>
-                            <?php echo generateMapImageElement('temperatures_map.php'); ?>
+                            <?php //echo generateMapImageElement('temperatures_map.php'); ?>
                         </li>
                         <li>
                             <h2>Wind</h2>
-                            <?php echo generateMapImageElement('wind_map.php'); ?>
+                            <?php //echo generateMapImageElement('wind_map.php'); ?>
                         </li>
                         <li>
                             <h2>Pollination</h2>
-                            <?php echo generateMapImageElement('pollination_maps.php'); ?>
+                            <?php //echo generateMapImageElement('pollination_maps.php'); ?>
                         </li>
                     </ul>
                 </section>
