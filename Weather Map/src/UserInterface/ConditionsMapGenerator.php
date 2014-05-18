@@ -40,11 +40,11 @@
               $background = parent::getBackgroundImage();
 
               foreach ($this->weatherData as $currentWeatherData) {
-                  $destinationDoordinates = parent::getCoordinates($currentWeatherData->region);
                   $icon = self::getImageForWeatherCondition($currentWeatherData->weatherCondition);
-                  $imageSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
+                  $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
+                  $destinationCoordinates = parent::getCoordinate($currentWeatherData->region, $iconSize);                  
                   
-                  imagecopy($background, $icon, $destinationDoordinates->x, $destinationDoordinates->y, 0, 0, $imageSize->width, $imageSize->height);
+                  imagecopy($background, $icon, $destinationCoordinates->x, $destinationCoordinates->y, 0, 0, $iconSize->width, $iconSize->height);
                   imagedestroy($icon);
               }
 

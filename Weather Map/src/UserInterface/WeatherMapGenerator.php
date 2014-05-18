@@ -26,25 +26,42 @@
               return imagecreatefromjpeg('media/images/switzerland_map.jpg');
           }
           
-          public static function getCoordinates($region) {
+          public static function getCoordinate($region, $iconSize) {
               // TODO: Improve
               
+              // Get the base coordinates
+              $baseCoordinate = '';
               switch ($region) {
                   case \WeatherMap\Region::Geneva:
-                      return new \WeatherMap\Coordinate(0, 0);
+                      $baseCoordinate = new \WeatherMap\Coordinate(75, 645);
+                      break;
                   case \WeatherMap\Region::Valais:
-                      return new \WeatherMap\Coordinate(50, 0);
+                      $baseCoordinate = new \WeatherMap\Coordinate(430, 625);
+                      break;
                   case \WeatherMap\Region::Ticino:
-                      return new \WeatherMap\Coordinate(100, 0);
+                      $baseCoordinate = new \WeatherMap\Coordinate(650, 520);
+                      break;
                   case \WeatherMap\Region::Grisons:
-                      return new \WeatherMap\Coordinate(0, 50);
+                      $baseCoordinate = new \WeatherMap\Coordinate(1100, 480);
+                      break;
                   case \WeatherMap\Region::Zurich:
-                      return new \WeatherMap\Coordinate(0, 100);
+                      $baseCoordinate = new \WeatherMap\Coordinate(772, 142);
+                      break;
                   case \WeatherMap\Region::Berne:
-                      return new \WeatherMap\Coordinate(150, 150);
-                  case \WeatherMap\Region::Basle:
-                      return new \WeatherMap\Coordinate(200, 200);
+                      $baseCoordinate = new \WeatherMap\Coordinate(458, 330);
+                      break;
+                  case \WeatherMap\Region::Basle:                      
+                      $baseCoordinate = new \WeatherMap\Coordinate(495, 70);
+                      break;
               }
+              
+              // Center the icon
+              $xOffset =  - ($iconSize->width / 2);
+              $yOffset =  - ($iconSize->height / 2);
+              $coordinate =  new \WeatherMap\Coordinate($baseCoordinate->x + $xOffset, $baseCoordinate->y + $yOffset);
+              
+              // Return
+              return $coordinate;
           }
           
       }
