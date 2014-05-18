@@ -21,8 +21,10 @@
     <Compile Include="about.php" />
     <Compile Include="src\BusinessLogic\WeatherDataBuilder.php" />
     <Compile Include="src\BusinessLogic\ArrayWeatherDataBuilder.php" />
+    <Compile Include="src\Size.php" />
     <Compile Include="src\DataAccess\WeatherDataReader.php" />
     <Compile Include="src\DataAccess\WebsiteWeatherDataReader.php" />
+    <Compile Include="src\Coordinate.php" />
     <Compile Include="wind_map.php" />
     <Compile Include="pollination_map.php" />
     <Compile Include="temperatures_map.php" />
@@ -65,6 +67,17 @@
     <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="media\icons\cloudy.png" />
+    <Content Include="media\icons\Cloudy.psd" />
+    <Content Include="media\icons\rain.png" />
+    <Content Include="media\icons\Rain.psd" />
+    <Content Include="media\icons\snow.png" />
+    <Content Include="media\icons\Snow.psd" />
+    <Content Include="media\icons\sun.png" />
+    <Content Include="media\icons\Sun.psd" />
+    <Content Include="media\icons\thunderstorm.png" />
+    <Content Include="media\icons\Thunderstorm.psd" />
+    <Content Include="media\icons\Weather icons.psd" />
     <Content Include="unavailable.html" />
     <Content Include="includes\footer.inc.html" />
     <Content Include="includes\javascript_off_warning.inc.html" />
