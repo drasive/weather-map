@@ -120,7 +120,7 @@ else {
                             <?php echo generateMapImageElement('conditions_map.php'); ?>
                         </li>
                         <li>
-                            <h2 class="image-title">Temperature</h2>
+                            <h2 class="image-title">Temperatures</h2>
                             <?php echo generateMapImageElement('temperatures_map.php'); ?>
                         </li>
                         <li>
@@ -129,7 +129,7 @@ else {
                         </li>
                         <li>
                             <h2 class="image-title">Pollination</h2>
-                            <?php //echo generateMapImageElement('pollination_maps.php'); ?>
+                            <?php echo generateMapImageElement('pollination_map.php'); ?>
                         </li>
                     </ul>
                 </section>
