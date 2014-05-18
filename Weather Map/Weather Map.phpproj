@@ -19,6 +19,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="about.php" />
+    <Compile Include="src\BusinessLogic\PollinationMapGenerator.php" />
     <Compile Include="src\BusinessLogic\TemperaturesMapGenerator.php" />
     <Compile Include="src\BusinessLogic\WeatherDataBuilder.php" />
     <Compile Include="src\BusinessLogic\ArrayWeatherDataBuilder.php" />
@@ -26,6 +27,7 @@
     <Compile Include="src\DataAccess\WeatherDataReader.php" />
     <Compile Include="src\DataAccess\WebsiteWeatherDataReader.php" />
     <Compile Include="src\Coordinate.php" />
+    <Compile Include="src\UserInterface\PollinationMapGenerator.php" />
     <Compile Include="src\UserInterface\TemperaturesMapGenerator.php" />
     <Compile Include="wind_map.php" />
     <Compile Include="pollination_map.php" />
@@ -56,6 +58,8 @@
     <Folder Include="includes\" />
     <Folder Include="media\" />
     <Folder Include="media\icons\" />
+    <Folder Include="media\icons\pollination\" />
+    <Folder Include="media\icons\weather\" />
     <Folder Include="media\images\" />
     <Folder Include="scripts\" />
     <Folder Include="scripts\js\" />
@@ -69,18 +73,24 @@
     <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="media\icons\cloudy.png" />
-    <Content Include="media\icons\Cloudy.psd" />
-    <Content Include="media\icons\rain.png" />
-    <Content Include="media\icons\Rain.psd" />
-    <Content Include="media\icons\snow.png" />
-    <Content Include="media\icons\Snow.psd" />
+    <Content Include="media\icons\pollination\moderate.png" />
+    <Content Include="media\icons\pollination\Moderate.psd" />
+    <Content Include="media\icons\pollination\strong.png" />
+    <Content Include="media\icons\pollination\Strong.psd" />
+    <Content Include="media\icons\pollination\weak.png" />
+    <Content Include="media\icons\pollination\Weak.psd" />
     <Content Include="media\icons\Sun.psd" />
-    <Content Include="media\icons\sunny.png" />
-    <Content Include="media\icons\Sunny.psd" />
-    <Content Include="media\icons\thunderstorm.png" />
-    <Content Include="media\icons\Thunderstorm.psd" />
-    <Content Include="media\icons\Weather icons.psd" />
+    <Content Include="media\icons\weather\cloudy.png" />
+    <Content Include="media\icons\weather\Cloudy.psd" />
+    <Content Include="media\icons\weather\Icons.psd" />
+    <Content Include="media\icons\weather\rain.png" />
+    <Content Include="media\icons\weather\Rain.psd" />
+    <Content Include="media\icons\weather\snow.png" />
+    <Content Include="media\icons\weather\Snow.psd" />
+    <Content Include="media\icons\weather\sunny.png" />
+    <Content Include="media\icons\weather\Sunny.psd" />
+    <Content Include="media\icons\weather\thunderstorm.png" />
+    <Content Include="media\icons\weather\Thunderstorm.psd" />
     <Content Include="style\fonts\arial.ttf" />
     <Content Include="unavailable.html" />
     <Content Include="includes\footer.inc.html" />
