@@ -19,12 +19,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="about.php" />
+    <Compile Include="src\BusinessLogic\WeatherDataBuilder.php" />
+    <Compile Include="src\BusinessLogic\ArrayWeatherDataBuilder.php" />
+    <Compile Include="src\DataAccess\WeatherDataReader.php" />
+    <Compile Include="src\DataAccess\WebsiteWeatherDataReader.php" />
+    <Compile Include="wind_map.php" />
+    <Compile Include="pollination_map.php" />
+    <Compile Include="temperatures_map.php" />
     <Compile Include="configuration.ini" />
     <Compile Include="error.php" />
     <Compile Include="includes\warnings.inc.php" />
     <Compile Include="index.php" />
     <Compile Include="src\BusinessLogic\ConditionsMapGenerator.php" />
-    <Compile Include="src\BusinessLogic\WeatherDataFromCsvBuilder.php" />
     <Compile Include="src\BusinessLogic\WeatherMapGenerator.php" />
     <Compile Include="src\Pollination.php" />
     <Compile Include="src\CardinalDirection.php" />
@@ -40,7 +46,6 @@
     <Compile Include="src\Temperature.php" />
     <Compile Include="src\WeatherCondition.php" />
     <Compile Include="src\WeatherData.php" />
-    <Compile Include="src\DataAccess\CsvFileReader.php" />
     <Compile Include="weather_generator.php" />
   </ItemGroup>
   <ItemGroup>
