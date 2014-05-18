@@ -1,13 +1,16 @@
 <?php namespace WeatherMap\BusinessLogic;
 
+      require_once('src/BusinessLogic/WeatherDataBuilder.php');
+      
       require_once('src/WeatherData.php');
       require_once('src/Region.php');
       require_once('src/WeatherCondition.php');
       require_once('src/Temperature.php');
       require_once('src/Wind.php');
+      require_once('src/CardinalDirection.php');
       require_once('src/Pollination.php');
       
-      class WeatherDataFromCsvBuilder {
+      class ArrayWeatherDataBuilder extends WeatherDataBuilder {
           
           // Protected variables
           protected static function parseRegion($regionAsInteger) {
@@ -47,7 +50,7 @@
           
           
           protected static function parseTemperature($temperatureAsString) {
-              $temperatureAsStringValues = explore('/', $temperatureAsString);
+              $temperatureAsStringValues = explode('/', $temperatureAsString);
               
               $minimum = $temperatureAsStringValues[0];
               $maximum = $temperatureAsStringValues[1];
@@ -57,7 +60,7 @@
           
           
           protected static function parseWind($windAsString) {
-              $windAsStringValues = explore('/', $windAsString);
+              $windAsStringValues = explode('/', $windAsString);
               
               $directionAsString = $windAsStringValues[0];
               $direction = self::parseWindDirection($directionAsString);
@@ -105,17 +108,15 @@
           }
           
           // Public methods
-          public static function buildWeatherData($csvRows) {
+          public function buildWeatherData($dataAsArray) {
               $weatherData = array();
               
-              foreach($csvRows as $csvRow) {
-                  // TODO:
-                  
-                  $region = self::parseRegion(1);
-                  $weatherCondition = self::parseWeatherCondition(1);
-                  $temperature = self::parseTemperature(1);
-                  $wind = self::parseWind(1);
-                  $pollination= self::parsePollination(1);
+              foreach($dataAsArray as $row) {
+                  $region = self::parseRegion($row[1]);
+                  $weatherCondition = self::parseWeatherCondition($row[2]);
+                  $temperature = self::parseTemperature($row[3]);
+                  $wind = self::parseWind($row[4]);
+                  $pollination = self::parsePollination($row[5]);
                   
                   $currentWeatherData = new \WeatherMap\WeatherData($region, $weatherCondition, $temperature, $wind, $pollination);
                   array_push($weatherData, $currentWeatherData);
