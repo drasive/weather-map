@@ -18,15 +18,15 @@
           protected static function getIconForWeatherCondition($weatherCondition) {
               switch ($weatherCondition) {
                   case \WeatherMap\WeatherCondition::Sunny:
-                      return imagecreatefrompng('media/icons/sunny.png');
+                      return imagecreatefrompng('media/icons/weather/sunny.png');
                   case \WeatherMap\WeatherCondition::Cloudy:
-                      return imagecreatefrompng('media/icons/cloudy.png');
+                      return imagecreatefrompng('media/icons/weather/cloudy.png');
                   case \WeatherMap\WeatherCondition::Rain:
-                      return imagecreatefrompng('media/icons/rain.png');
+                      return imagecreatefrompng('media/icons/weather/rain.png');
                   case \WeatherMap\WeatherCondition::Thunderstorm:
-                      return imagecreatefrompng('media/icons/thunderstorm.png');
+                      return imagecreatefrompng('media/icons/weather/thunderstorm.png');
                   case \WeatherMap\WeatherCondition::Snow:
-                      return imagecreatefrompng('media/icons/snow.png');
+                      return imagecreatefrompng('media/icons/weather/snow.png');
               }
           }
           
