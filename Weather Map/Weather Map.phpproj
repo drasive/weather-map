@@ -73,8 +73,8 @@
     <Content Include="media\icons\Rain.psd" />
     <Content Include="media\icons\snow.png" />
     <Content Include="media\icons\Snow.psd" />
-    <Content Include="media\icons\sun.png" />
-    <Content Include="media\icons\Sun.psd" />
+    <Content Include="media\icons\sunny.png" />
+    <Content Include="media\icons\Sunny.psd" />
     <Content Include="media\icons\thunderstorm.png" />
     <Content Include="media\icons\Thunderstorm.psd" />
     <Content Include="media\icons\Weather icons.psd" />
