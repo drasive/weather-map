@@ -19,12 +19,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="about.php" />
+    <Compile Include="src\BusinessLogic\TemperaturesMapGenerator.php" />
     <Compile Include="src\BusinessLogic\WeatherDataBuilder.php" />
     <Compile Include="src\BusinessLogic\ArrayWeatherDataBuilder.php" />
     <Compile Include="src\Size.php" />
     <Compile Include="src\DataAccess\WeatherDataReader.php" />
     <Compile Include="src\DataAccess\WebsiteWeatherDataReader.php" />
     <Compile Include="src\Coordinate.php" />
+    <Compile Include="src\UserInterface\TemperaturesMapGenerator.php" />
     <Compile Include="wind_map.php" />
     <Compile Include="pollination_map.php" />
     <Compile Include="temperatures_map.php" />
@@ -79,6 +81,7 @@
     <Content Include="media\icons\thunderstorm.png" />
     <Content Include="media\icons\Thunderstorm.psd" />
     <Content Include="media\icons\Weather icons.psd" />
+    <Content Include="style\fonts\arial.ttf" />
     <Content Include="unavailable.html" />
     <Content Include="includes\footer.inc.html" />
     <Content Include="includes\javascript_off_warning.inc.html" />

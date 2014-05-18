@@ -15,6 +15,7 @@
           }
           
           // Public constructors
+          // Take the date as an argument
           public function __construct($date) {
               $this->date = $date;
           }    

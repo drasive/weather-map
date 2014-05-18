@@ -5,9 +5,9 @@
       require_once('src/DataAccess/WebsiteWeatherDataReader.php');
       require_once('src/BusinessLogic/ConfigurationReader.php');
       require_once('src/BusinessLogic/ArrayWeatherDataBuilder.php');
-      require_once('src/UserInterface/ConditionsMapGenerator.php');
+      require_once('src/UserInterface/TemperaturesMapGenerator.php');
 
-      class ConditionsMapGenerator extends WeatherMapGenerator {
+      class TemperaturesMapGenerator extends WeatherMapGenerator {
 
           // Public constructors
           function __construct($date) {
@@ -34,7 +34,7 @@
               }
 
               // Generate map
-              $mapGenerator = new \WeatherMap\UserInterface\ConditionsMapGenerator($weatherData);
+              $mapGenerator = new \WeatherMap\UserInterface\TemperaturesMapGenerator($weatherData);
               $map = $mapGenerator->generateMap();
 
               // Return map

@@ -121,7 +121,7 @@ else {
                         </li>
                         <li>
                             <h2 class="image-title">Temperature</h2>
-                            <?php //echo generateMapImageElement('temperatures_map.php'); ?>
+                            <?php echo generateMapImageElement('temperatures_map.php'); ?>
                         </li>
                         <li>
                             <h2 class="image-title">Wind</h2>

@@ -15,7 +15,7 @@
       class ConditionsMapGenerator extends WeatherMapGenerator {
 
           // Protected methods
-          protected static function getImageForWeatherCondition($weatherCondition) {
+          protected static function getIconForWeatherCondition($weatherCondition) {
               switch ($weatherCondition) {
                   case \WeatherMap\WeatherCondition::Sunny:
                       return imagecreatefrompng('media/icons/sunny.png');
@@ -40,9 +40,9 @@
               $background = parent::getBackgroundImage();
 
               foreach ($this->weatherData as $currentWeatherData) {
-                  $icon = self::getImageForWeatherCondition($currentWeatherData->weatherCondition);
+                  $icon = self::getIconForWeatherCondition($currentWeatherData->weatherCondition);
                   $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
-                  $destinationCoordinates = parent::getCoordinate($currentWeatherData->region, $iconSize);                  
+                  $destinationCoordinates = parent::getCoordinateForIcon($currentWeatherData->region, $iconSize);                  
                   
                   imagecopy($background, $icon, $destinationCoordinates->x, $destinationCoordinates->y, 0, 0, $iconSize->width, $iconSize->height);
                   imagedestroy($icon);
