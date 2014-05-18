@@ -10,7 +10,7 @@ require_once('src/BusinessLogic/ConfigurationReader.php');
 require_once('src/BusinessLogic/HttpParameterValidator.php');
 
 // Configure the default timezone
-$default_timezone = WeatherMap\BusinessLogic\ConfigurationReader::getTimezone();
+$default_timezone = \WeatherMap\BusinessLogic\ConfigurationReader::getTimezone();
 date_default_timezone_set($default_timezone);
 
 // Get the HTTP parameters
@@ -18,7 +18,7 @@ $dateHttpParameter = $_GET['date'];
 $date = '';
 $dateString = '';
 
-if (isset($dateHttpParameter) && WeatherMap\BusinessLogic\HttpParameterValidator::hasValue($dateHttpParameter)) {
+if (isset($dateHttpParameter) && \WeatherMap\BusinessLogic\HttpParameterValidator::hasValue($dateHttpParameter)) {
     $date = strtotime($dateHttpParameter);
 }
 
@@ -31,10 +31,10 @@ $dateString =  date('Y-m-d', $date);
 // Process HTTP parameters
 $dayOfWeek = '';
 
-if (WeatherMap\BusinessLogic\DateTimeHelper::isToday($date)) {
+if (\WeatherMap\BusinessLogic\DateTimeHelper::isToday($date)) {
     $dayOfWeek = 'Today';
 }
-else if (WeatherMap\BusinessLogic\DateTimeHelper::isTomorrow($date)) {
+else if (\WeatherMap\BusinessLogic\DateTimeHelper::isTomorrow($date)) {
     $dayOfWeek = 'Tomorrow';
 }
 else {
