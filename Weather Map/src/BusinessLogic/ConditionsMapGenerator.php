@@ -34,8 +34,8 @@
               }
 
               // Generate map
-              $mapGenerator = new \WeatherMap\UserInterface\ConditionsMapGenerator($this->date);
-              $map = $mapGenerator->generateMap($weatherData);
+              $mapGenerator = new \WeatherMap\UserInterface\ConditionsMapGenerator($weatherData);
+              $map = $mapGenerator->generateMap();
 
               // Return map
               return $map;

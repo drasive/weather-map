@@ -1,5 +1,7 @@
 <?php namespace WeatherMap\BusinessLogic;
       
+      require_once('src/Coordinate.php');
+      
       abstract class WeatherMapGenerator {
           
           // Protected variable
@@ -8,7 +10,7 @@
           // Public properties
           public function __get($property) {
               if (property_exists($this, $property)) {
-                  return $this->property;
+                  return $this->$property;
               }
           }
           
