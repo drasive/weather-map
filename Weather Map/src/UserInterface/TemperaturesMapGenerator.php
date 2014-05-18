@@ -17,16 +17,11 @@
               }
           }
           
-          // Public constructors
-          function __construct($weatherData) {
-              parent::__construct($weatherData);
-          }
-
           // Public methods
-          public function generateMap() {
+          public function generateMap($weatherData) {
               $background = parent::getBackgroundImage();
 
-              foreach ($this->weatherData as $currentWeatherData) {
+              foreach ($weatherData as $currentWeatherData) {
                   // TODO: Improve positioning
                   
                   $fontTemperatureMinimum = self::getColorForTemperature($currentWeatherData->temperature->minimum);

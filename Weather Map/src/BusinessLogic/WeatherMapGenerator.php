@@ -13,15 +13,9 @@
                   return $this->$property;
               }
           }
-          
-          // Public constructors
-          // Take the date as an argument
-          public function __construct($date) {
-              $this->date = $date;
-          }    
-          
+                    
           // Public methods
-          public abstract function generateMap();
+          public abstract function generateMap($date);
           
       }
       

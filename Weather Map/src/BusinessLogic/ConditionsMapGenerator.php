@@ -9,13 +9,8 @@
 
       class ConditionsMapGenerator extends WeatherMapGenerator {
 
-          // Public constructors
-          function __construct($date) {
-              parent::__construct($date);
-          }
-
           // Public methods
-          public function generateMap() {
+          public function generateMap($date) {
               // Get all raw data
               $weatherDataReader = new \WeatherMap\DataAccess\WebsiteWeatherDataReader();
               $weatherDataSource = \WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceURL();
@@ -28,7 +23,7 @@
               // Filter data
               $weatherData = array();
               foreach ($weatherDataUnfiltered as $currentWeatherData) {
-                  if ($currentWeatherData->date == $this->date) {
+                  if ($currentWeatherData->date == $date) {
                       array_push($weatherData, $currentWeatherData);
                   }
               }

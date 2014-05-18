@@ -14,8 +14,8 @@ if (isset($dateHttpParameter) && \WeatherMap\BusinessLogic\HttpParameterValidato
 // TODO: Else -> throw exception or something
 
 // Generate the map
-$mapGenerator = new \WeatherMap\BusinessLogic\ConditionsMapGenerator($date);
-$map = $mapGenerator->generateMap();
+$mapGenerator = new \WeatherMap\BusinessLogic\ConditionsMapGenerator();
+$map = $mapGenerator->generateMap($date);
 
 // Set the HTTP headers
 header("Content-Type: image/jpg");

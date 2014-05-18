@@ -14,12 +14,6 @@
               }
           }
           
-          // Public constructors
-          // Take the weather data as an argument
-          public function __construct($weatherData) {
-              $this->weatherData = $weatherData;
-          }    
-          
           // Protected methods
           protected static function getBaseCoordinate($region) {
               // TODO: Improve
@@ -43,7 +37,7 @@
           }
           
           // Public methods
-          public abstract function generateMap();
+          public abstract function generateMap($weatherData);
           
           
           public static function getBackgroundImage() {

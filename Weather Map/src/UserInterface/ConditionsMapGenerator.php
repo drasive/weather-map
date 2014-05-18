@@ -30,16 +30,11 @@
               }
           }
           
-          // Public constructors
-          function __construct($weatherData) {
-              parent::__construct($weatherData);
-          }
-
           // Public methods
           public function generateMap() {
               $background = parent::getBackgroundImage();
 
-              foreach ($this->weatherData as $currentWeatherData) {
+              foreach ($weatherData as $currentWeatherData) {
                   $icon = self::getIconForWeatherCondition($currentWeatherData->weatherCondition);
                   $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
                   $destinationCoordinates = parent::getCoordinateForIcon($currentWeatherData->region, $iconSize);                  
