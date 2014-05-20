@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 <?php
+// TODO: Use the same weather data for all the maps (and possibly all the days)
+
 // TODO: Check if the webservice can be reached or show an error
 
 

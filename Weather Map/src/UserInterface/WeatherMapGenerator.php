@@ -1,6 +1,7 @@
 <?php namespace WeatherMap\UserInterface;
       
       require_once('src/BusinessLogic/HttpParameterValidator.php');
+      require_once('src/UserInterface/ImageHelper.php');
 
       abstract class WeatherMapGenerator {
           
@@ -16,7 +17,7 @@
           
           // Protected methods
           protected static function getBaseCoordinate($region) {
-              // TODO: Improve
+              // TODO: Improve coordinates
               
               switch ($region) {
                   case \WeatherMap\Region::Geneva:
@@ -41,7 +42,10 @@
           
           
           public static function getBackgroundImage() {
-              return imagecreatefromjpeg('media/images/switzerland_map.jpg');
+              $background = imagecreatefrompng('media/images/switzerland_map.png');
+              $background = \WeatherMap\UserInterface\ImageHelper::enableTransparency($background);
+                            
+              return $background;
           }
           
           

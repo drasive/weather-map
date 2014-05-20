@@ -32,18 +32,21 @@
                   $fontFile = 'style/fonts/arial.ttf';
                   $fontSize = 18;
                   $textAngle = 0;
-                  $splitCharacterOffset = 15;
+                  $splitCharacterOffset = 40;
                   
                   // Draw minimum temperature
-                  imagettftext($background, $fontSize, $textAngle, $destinationCoordinates->x, $destinationCoordinates->y,
+                  imagettftext($background, $fontSize, $textAngle,
+                               $destinationCoordinates->x, $destinationCoordinates->y,
                                $fontTemperatureMinimum, $fontFile, $currentWeatherData->temperature->minimum);
                   
                   // Draw split character
-                  imagettftext($background, $fontSize, $textAngle, $destinationCoordinates->x + $splitCharacterOffset, $destinationCoordinates->y,
+                  imagettftext($background, $fontSize, $textAngle,
+                               $destinationCoordinates->x + $splitCharacterOffset, $destinationCoordinates->y,
                                $fontSplitCharacter, $fontFile, '/');
                   
                   // Draw maximum temperature
-                  imagettftext($background, $fontSize, $textAngle, $destinationCoordinates->x + 25, $destinationCoordinates->y,
+                  imagettftext($background, $fontSize, $textAngle,
+                               $destinationCoordinates->x + 60, $destinationCoordinates->y,
                                $fontTemperatureMaxmimum, $fontFile, $currentWeatherData->temperature->maximum);
               }
 

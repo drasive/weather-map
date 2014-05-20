@@ -10,40 +10,55 @@
       //
       // Damn, that probably the longest meanigful comment I have ever written.
       require_once('src/UserInterface/WeatherMapGenerator.php');
+      require_once('src/UserInterface/ImageHelper.php');
       require_once('src/Size.php');
 
       class ConditionsMapGenerator extends WeatherMapGenerator {
 
           // Protected methods
           protected static function getIconForWeatherCondition($weatherCondition) {
+              $icon = null;
+              
               switch ($weatherCondition) {
                   case \WeatherMap\WeatherCondition::Sunny:
-                      return imagecreatefrompng('media/icons/weather/sunny.png');
+                      $icon = imagecreatefrompng('media/icons/weather/sunny.png');
+                      break;
                   case \WeatherMap\WeatherCondition::Cloudy:
-                      return imagecreatefrompng('media/icons/weather/cloudy.png');
+                      $icon = imagecreatefrompng('media/icons/weather/cloudy.png');
+                      break;
                   case \WeatherMap\WeatherCondition::Rain:
-                      return imagecreatefrompng('media/icons/weather/rain.png');
+                      $icon = imagecreatefrompng('media/icons/weather/rain.png');
+                      break;
                   case \WeatherMap\WeatherCondition::Thunderstorm:
-                      return imagecreatefrompng('media/icons/weather/thunderstorm.png');
+                      $icon = imagecreatefrompng('media/icons/weather/thunderstorm.png');
+                      break;
                   case \WeatherMap\WeatherCondition::Snow:
-                      return imagecreatefrompng('media/icons/weather/snow.png');
+                      $icon = imagecreatefrompng('media/icons/weather/snow.png');
+                      break;
               }
+              
+              $icon = \WeatherMap\UserInterface\ImageHelper::enableTransparency($icon);
+              
+              return $icon;
           }
           
           // Public methods
           public function generateMap($weatherData) {
-              $background = parent::getBackgroundImage();
+             $background = parent::getBackgroundImage();
 
-              foreach ($weatherData as $currentWeatherData) {
-                  $icon = self::getIconForWeatherCondition($currentWeatherData->weatherCondition);
-                  $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
-                  $destinationCoordinates = parent::getCoordinateForIcon($currentWeatherData->region, $iconSize);                  
-                  
-                  imagecopy($background, $icon, $destinationCoordinates->x, $destinationCoordinates->y, 0, 0, $iconSize->width, $iconSize->height);
-                  imagedestroy($icon);
-              }
+             foreach ($weatherData as $currentWeatherData) {
+                 $icon = self::getIconForWeatherCondition($currentWeatherData->weatherCondition);
+                 $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
+                 $destinationCoordinates = parent::getCoordinateForIcon($currentWeatherData->region, $iconSize);                  
+                 
+                 imagecopy($background, $icon,
+                           $destinationCoordinates->x, $destinationCoordinates->y,
+                           0, 0,
+                           $iconSize->width, $iconSize->height);
+                 imagedestroy($icon);
+             }
 
-              return $background;
+             return $background;
           }
 
       }

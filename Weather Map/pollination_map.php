@@ -18,7 +18,7 @@ $map = $mapGenerator->generateMap($date);
 header("Content-Type: image/jpg");
 
 // Return the map
-imagejpeg($map);
+imagepng($map);
 imagedestroy($map);
 
 ?>
