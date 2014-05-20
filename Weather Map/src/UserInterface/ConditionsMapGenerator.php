@@ -51,10 +51,10 @@
                  $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
                  $destinationCoordinates = parent::getCoordinateForIcon($currentWeatherData->region, $iconSize);                  
                  
-                 imagecopy($background, $icon,
-                           $destinationCoordinates->x, $destinationCoordinates->y,
-                           0, 0,
-                           $iconSize->width, $iconSize->height);
+                 imagecopymerge($background, $icon,
+                                $destinationCoordinates->x, $destinationCoordinates->y,
+                                0, 0,
+                                $iconSize->width, $iconSize->height, 70);
                  imagedestroy($icon);
              }
 
