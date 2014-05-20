@@ -1,1 +1,0 @@
-git remote add azure https://Dimitri-Vranken@weather-map-vranken.scm.azurewebsites.net:443/weather-map-vranken.git
