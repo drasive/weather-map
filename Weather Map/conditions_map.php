@@ -8,7 +8,7 @@ require_once('src/BusinessLogic/ConditionsMapGenerator.php');
 
 $dateHttpParameter = $_GET['date'];
 
-if (isset($dateHttpParameter) && \WeatherMap\BusinessLogic\HttpParameterValidator::hasValue($dateHttpParameter)) {
+if (isset($dateHttpParameter) && \WeatherMap\HttpParameterHelper::hasValue($dateHttpParameter)) {
     $date = strtotime($dateHttpParameter);
 }
 // TODO: Else -> throw exception or something

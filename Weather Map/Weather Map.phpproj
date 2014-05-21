@@ -47,7 +47,7 @@
     <Compile Include="src\BusinessLogic\ConfigurationReader.php" />
     <Compile Include="src\UserInterface\ConditionsMapGenerator.php" />
     <Compile Include="src\DataAccess\ConfigurationReader.php" />
-    <Compile Include="src\BusinessLogic\HttpParameterValidator.php" />
+    <Compile Include="src\HttpParameterHelper.php" />
     <Compile Include="src\BusinessLogic\DateTimeHelper.php" />
     <Compile Include="src\Region.php" />
     <Compile Include="src\Temperature.php" />

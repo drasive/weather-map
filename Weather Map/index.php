@@ -9,13 +9,13 @@
 // Includes
 require_once('src/BusinessLogic/DateTimeHelper.php');
 require_once('src/BusinessLogic/ConfigurationReader.php');
-require_once('src/BusinessLogic/HttpParameterValidator.php');
+require_once('src/HttpParameterHelper.php');
 
 // Get the HTTP parameters
 $dateHttpParameter = $_GET['date'];
 $date = null;
 
-if (isset($dateHttpParameter) && \WeatherMap\BusinessLogic\HttpParameterValidator::hasValue($dateHttpParameter)) {
+if (isset($dateHttpParameter) && \WeatherMap\HttpParameterHelper::hasValue($dateHttpParameter)) {
     $date = strtotime($dateHttpParameter);
 }
 
@@ -32,7 +32,7 @@ else if ($date < $minimumDate || $date >= $maximumDate) { // Date out of valid r
 }
 
 // Process the HTTP parameters
-$dateISO8601 = date('Y-m-d', date($date));
+$dateISO8601 = date('Y-m-d', $date);
 $dateHumanReadable = date('d. M Y', $date);
 $dateDayOfWeek = null;
 

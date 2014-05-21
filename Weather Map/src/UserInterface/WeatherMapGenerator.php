@@ -1,6 +1,6 @@
 <?php namespace WeatherMap\UserInterface;
       
-      require_once('src/BusinessLogic/HttpParameterValidator.php');
+      require_once('src/HttpParameterHelper.php');
       require_once('src/UserInterface/ImageHelper.php');
 
       abstract class WeatherMapGenerator {

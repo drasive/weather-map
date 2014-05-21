@@ -1,9 +1,9 @@
-<?php namespace WeatherMap\BusinessLogic;
+<?php namespace WeatherMap;
       
       /**
        * Stellt Methoden bereit, um HTTP Parameter zu validieren.
        */
-      abstract class HttpParameterValidator {
+      abstract class HttpParameterHelper {
           
           // Public methods
           /**

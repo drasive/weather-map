@@ -6,7 +6,7 @@ require_once('src/BusinessLogic/WindMapGenerator.php');
 // Get the HTTP parameters
 $dateHttpParameter = $_GET['date'];
 
-if (isset($dateHttpParameter) && \WeatherMap\BusinessLogic\HttpParameterValidator::hasValue($dateHttpParameter)) {
+if (isset($dateHttpParameter) && \WeatherMap\HttpParameterHelper::hasValue($dateHttpParameter)) {
     $date = strtotime($dateHttpParameter);
 }
 
