@@ -8,6 +8,7 @@
 
 // Includes
 require_once('src/BusinessLogic/DateTimeHelper.php');
+require_once('src/BusinessLogic/ParameterValidator.php');
 require_once('src/BusinessLogic/ConfigurationReader.php');
 require_once('src/HttpParameterHelper.php');
 
@@ -20,15 +21,13 @@ if (isset($dateHttpParameter) && \WeatherMap\HttpParameterHelper::hasValue($date
 }
 
 // Validate the HTTP parameters
-$minimumDate = strtotime(date('Y-m-d', time()));
-$maximumDate = $minimumDate + (60 * 60 * 24 * 7);
 $defaultDate = time();
 
 if ($date == null || $date == false || date == '') { // Date couldn't be obtained
     $date = $defaultDate;
 }
-else if ($date < $minimumDate || $date >= $maximumDate) { // Date out of valid range
-    $date = $defaultDate;
+else {
+    $date = \WeatherMap\BusinessLogic\ParameterValidator::validateRequestedMapDate($date, $defaultDate);
 }
 
 // Process the HTTP parameters
@@ -109,31 +108,31 @@ else {
             <article>
                 <section class="flexslider">
                     <?php
-                    function generateMapImageElement($mapImageGeneratorUrl) {
+                    function generateMapImageElement($mapImageGeneratorUrl, $imageDescription) {
                         $parameterName = 'date';
                         global $dateISO8601;
                         $parameterValue = $dateISO8601;
 
-                        return "<img src='$mapImageGeneratorUrl?$parameterName=$parameterValue' />";
+                        return "<img src='$mapImageGeneratorUrl?$parameterName=$parameterValue' alt='$imageDescription' />";
                     }
                     ?>
 
                     <ul class="slides">
                         <li>
                             <h2 class="image-title">Conditions</h2>
-                            <?php echo generateMapImageElement('conditions_map.php'); ?>
+                            <?php echo generateMapImageElement('conditions_map.php', 'Show the general weather conditions of a region.'); ?>
                         </li>
                         <li>
                             <h2 class="image-title">Temperatures</h2>
-                            <?php echo generateMapImageElement('temperatures_map.php'); ?>
+                            <?php echo generateMapImageElement('temperatures_map.php', 'Shows the minimum an maximum temparatures of a region.'); ?>
                         </li>
                         <li>
                             <h2 class="image-title">Wind</h2>
-                            <?php //echo generateMapImageElement('wind_map.php'); ?>
+                            <?php //echo generateMapImageElement('wind_map.php', 'Shows the wind direction an speed of a region.'); ?>
                         </li>
                         <li>
                             <h2 class="image-title">Pollination</h2>
-                            <?php echo generateMapImageElement('pollination_map.php'); ?>
+                            <?php echo generateMapImageElement('pollination_map.php', 'Shows the level of pollination of a region.'); ?>
                         </li>
                     </ul>
                 </section>

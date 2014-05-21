@@ -19,6 +19,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="about.php" />
+    <Compile Include="src\BusinessLogic\ParameterValidator.php" />
     <Compile Include="src\BusinessLogic\PollinationMapGenerator.php" />
     <Compile Include="src\BusinessLogic\TemperaturesMapGenerator.php" />
     <Compile Include="src\BusinessLogic\WeatherDataBuilder.php" />
