@@ -11,28 +11,30 @@ require_once('src/BusinessLogic/DateTimeHelper.php');
 require_once('src/BusinessLogic/ConfigurationReader.php');
 require_once('src/BusinessLogic/HttpParameterValidator.php');
 
-// Configure the default timezone
-$default_timezone = \WeatherMap\BusinessLogic\ConfigurationReader::getTimezone();
-date_default_timezone_set($default_timezone);
-
 // Get the HTTP parameters
-// TODO: Cceck if date smaller than today or bigger than allowed -> use today (currect URL if possible)
-
 $dateHttpParameter = $_GET['date'];
-$date = '';
+$date = null;
 
 if (isset($dateHttpParameter) && \WeatherMap\BusinessLogic\HttpParameterValidator::hasValue($dateHttpParameter)) {
     $date = strtotime($dateHttpParameter);
 }
 
-if ($date == '') { // Date couldn't be obtained from HTTP parameter
-    $date = time();
+// Validate the HTTP parameters
+$minimumDate = strtotime(date('Y-m-d', time()));
+$maximumDate = $minimumDate + (60 * 60 * 24 * 7);
+$defaultDate = time();
+
+if ($date == null || $date == false || date == '') { // Date couldn't be obtained
+    $date = $defaultDate;
+}
+else if ($date < $minimumDate || $date >= $maximumDate) { // Date out of valid range
+    $date = $defaultDate;
 }
 
 // Process the HTTP parameters
-$dateISO8601 = date('Y-m-d', $date);
+$dateISO8601 = date('Y-m-d', date($date));
 $dateHumanReadable = date('d. M Y', $date);
-$dateDayOfWeek = '';
+$dateDayOfWeek = null;
 
 if (\WeatherMap\BusinessLogic\DateTimeHelper::isToday($date)) {
     $dateDayOfWeek = 'Today';

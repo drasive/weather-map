@@ -8,9 +8,10 @@
               $dateMonth = getdate($date)['mon'];
               $dateDayOfMonth= getdate($date)['mday'];
               
-              $todayYear = getdate()['year'];
-              $todayMonth = getdate()['mon'];
-              $todayDayOfMonth= getdate()['mday'] + $todayDayOffset;
+              $today = getdate();
+              $todayYear = getdate($today)['year'];
+              $todayMonth = getdate($today)['mon'];
+              $todayDayOfMonth= getdate($today)['mday'] + $todayDayOffset;
 
               return ($dateYear == $todayYear && $dateMonth == $todayMonth && $dateDayOfMonth == $todayDayOfMonth);
           }
