@@ -1,6 +1,6 @@
 <?php namespace WeatherMap\BusinessLogic;
 
-      require_once('src/BusinessLogic/WeatherDataBuilder.php');
+      require_once('src/BusinessLogic/WeatherDataParser.php');
       
       require_once('src/WeatherData.php');
       require_once('src/Region.php');
@@ -10,7 +10,7 @@
       require_once('src/CardinalDirection.php');
       require_once('src/Pollination.php');
       
-      class ArrayWeatherDataBuilder extends WeatherDataBuilder {
+      class ArrayWeatherDataParser extends WeatherDataParser {
           
           // Protected variables
           protected static function parseDate($dateAsString) {
@@ -113,7 +113,7 @@
           }
           
           // Public methods
-          public function buildWeatherData($dataAsArray) {
+          public function parse($dataAsArray) {
               $weatherData = array();
               
               foreach($dataAsArray as $row) {

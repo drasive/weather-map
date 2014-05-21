@@ -1,9 +1,9 @@
 <?php namespace WeatherMap\BusinessLogic;
       
-      abstract class WeatherDataBuilder {
+      abstract class WeatherDataParser {
           
           // Public methods
-          public abstract function buildWeatherData($data);
+          public abstract function parse($data);
           
       }
 

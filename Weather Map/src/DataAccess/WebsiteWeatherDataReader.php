@@ -4,7 +4,7 @@
       
       class WebsiteWeatherDataReader extends WeatherDataReader {
           
-          public function readWeatherData($websiteURL) {
+          public function read($websiteURL) {
               // Get data
               $weatherDataUnconverted = file($websiteURL);
               

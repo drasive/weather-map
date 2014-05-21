@@ -22,8 +22,8 @@
     <Compile Include="src\BusinessLogic\ParameterValidator.php" />
     <Compile Include="src\BusinessLogic\PollinationMapGenerator.php" />
     <Compile Include="src\BusinessLogic\TemperaturesMapGenerator.php" />
-    <Compile Include="src\BusinessLogic\WeatherDataBuilder.php" />
-    <Compile Include="src\BusinessLogic\ArrayWeatherDataBuilder.php" />
+    <Compile Include="src\BusinessLogic\WeatherDataParser.php" />
+    <Compile Include="src\BusinessLogic\ArrayWeatherDataParser.php" />
     <Compile Include="src\Size.php" />
     <Compile Include="src\DataAccess\WeatherDataReader.php" />
     <Compile Include="src\DataAccess\WebsiteWeatherDataReader.php" />
@@ -57,12 +57,15 @@
     <Compile Include="weather_generator.php" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="data\weather data\" />
+    <Folder Include="data\weather maps\" />
     <Folder Include="includes\" />
     <Folder Include="media\" />
     <Folder Include="media\icons\" />
     <Folder Include="media\icons\pollination\" />
     <Folder Include="media\icons\weather\" />
     <Folder Include="media\images\" />
+    <Folder Include="data\" />
     <Folder Include="scripts\" />
     <Folder Include="scripts\js\" />
     <Folder Include="src\DataAccess\" />
