@@ -9,7 +9,7 @@
           // Public methods
           public function generateMap($date) {
               // Get weather data
-              $weatherData = parent::getData($date);
+              $weatherData = parent::getWeatherData($date);
               
               // Generate map
               $mapGenerator = new \WeatherMap\UserInterface\ConditionsMapGenerator($weatherData);

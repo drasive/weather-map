@@ -113,7 +113,7 @@
           }
           
           // Public methods
-          public function parse($dataAsArray) {
+          public function parseWeatherData($dataAsArray) {
               $weatherData = array();
               
               foreach($dataAsArray as $row) {

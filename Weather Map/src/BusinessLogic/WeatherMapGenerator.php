@@ -18,19 +18,19 @@
           }
           
           // Private methods
-          private static function getUnparsedData() {
+          private static function getUnparsedWeatherData() {
               $dataReader = new \WeatherMap\DataAccess\WebsiteWeatherDataReader();
               $dataSource = \WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceURL();
               
-              return $dataReader->read($dataSource);
+              return $dataReader->readData($dataSource);
           }
           
-          private static function parseData($dataUnparsed) {
+          private static function parseWeatherData($dataUnparsed) {
               $parser = new \WeatherMap\BusinessLogic\ArrayWeatherDataParser();
-              return $parser->parse($dataUnparsed);
+              return $parser->parseWeatherData($dataUnparsed);
           }
           
-          private static function filterData($dataUnfiltered, $date) {
+          private static function filterWeatherData($dataUnfiltered, $date) {
               $filteredData = array();
               
               foreach ($dataUnfiltered as $currentWeatherData) {
@@ -43,10 +43,10 @@
           }
           
           // Protected methods
-          protected static function getData($date) {
-              $unparsedData = self::getUnparsedData();
-              $parsedData = self::parseData($unparsedData);
-              $filteredDate = self::filterData($parsedData, $date);
+          protected static function getWeatherData($date) {
+              $unparsedData = self::getUnparsedWeatherData();
+              $parsedData = self::parseWeatherData($unparsedData);
+              $filteredDate = self::filterWeatherData($parsedData, $date);
                   
               return $filteredDate;
           }

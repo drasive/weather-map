@@ -3,7 +3,7 @@
       abstract class WeatherDataParser {
           
           // Public methods
-          public abstract function parse($data);
+          public abstract function parseWeatherData($data);
           
       }
 
