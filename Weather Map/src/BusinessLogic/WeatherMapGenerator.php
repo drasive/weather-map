@@ -19,6 +19,7 @@
           
           // Private methods
           private static function getUnparsedWeatherData() {
+              // TODO: _ Change to File..
               $dataReader = new \WeatherMap\DataAccess\WebsiteWeatherDataReader();
               $dataSource = \WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceURL();
               

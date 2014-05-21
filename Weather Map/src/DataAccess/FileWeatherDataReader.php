@@ -2,11 +2,11 @@
 
       require_once('src/DataAccess/WeatherDataReader.php');
       
-      class WebsiteWeatherDataReader extends WeatherDataReader {
+      class FileWeatherDataReader extends WeatherDataReader {
           
-          public function readData($websiteURL) {
+          public function readData($fileURL) {
               // Get data
-              $weatherDataUnparsed = file($websiteURL);
+              $weatherDataUnparsed = file($fileURL);
               
               if ($weatherDataUnparsed == null || $weatherDataUnparsed == false || $weatherDataUnparsed = '') {
                   return null;
