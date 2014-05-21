@@ -8,30 +8,24 @@
 
           // Protected methods
           protected static function getIconForPollination($pollination) {
-              $icon = null;
-              
               switch ($pollination) {
                   case \WeatherMap\Pollination::None:
                   // TODO: Add image for no pollution                  
                   case \WeatherMap\Pollination::Weak:
-                      $icon = imagecreatefrompng('media/icons/pollination/weak.png');
-                      break;
+                      return imagecreatefrompng('media/icons/pollination/weak.png');
                   case \WeatherMap\Pollination::Moderate:
-                      $icon = imagecreatefrompng('media/icons/pollination/moderate.png');
-                      break;
+                      return imagecreatefrompng('media/icons/pollination/moderate.png');
                   case \WeatherMap\Pollination::Strong:
-                      $icon = imagecreatefrompng('media/icons/pollination/strong.png');
-                      break;
+                      return imagecreatefrompng('media/icons/pollination/strong.png');
               }
-              
-              $icon = \WeatherMap\UserInterface\ImageHelper::enableTransparency($icon);
-              return $icon;
           }
           
           // Public methods
           public function generateMap($weatherData) {
-              $background = parent::getBackgroundImage();
+              // Get background image
+              $map = parent::getBackgroundImage();
 
+              // Add pollination icons
               foreach ($weatherData as $currentWeatherData) {
                   $icon = self::getIconForPollination($currentWeatherData->pollination);
                   
@@ -40,15 +34,19 @@
                       $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
                       $destinationCoordinates = parent::getCoordinateForIcon($currentWeatherData->region, $iconSize);                  
                       
-                      imagecopymerge($background, $icon,
-                                     $destinationCoordinates->x, $destinationCoordinates->y,
-                                     0, 0,
-                                     $iconSize->width, $iconSize->height, 70);
+                      imagecopy($map, $icon,
+                                $destinationCoordinates->x, $destinationCoordinates->y,
+                                0, 0,
+                                $iconSize->width, $iconSize->height);
                       imagedestroy($icon);
                   }
               }
-
-              return $background;
+              
+              // Enable transparency
+              $map = \WeatherMap\UserInterface\ImageHelper::enableTransparency($map);
+              
+              // Return
+              return $map;
           }
 
       }

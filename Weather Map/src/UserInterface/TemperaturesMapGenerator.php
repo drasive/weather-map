@@ -1,7 +1,8 @@
 <?php namespace WeatherMap\UserInterface;
 
       require_once('src/UserInterface/WeatherMapGenerator.php');
-
+      require_once('src/UserInterface/ImageHelper.php');
+      
       class TemperaturesMapGenerator extends WeatherMapGenerator {
 
           // Protected methods
@@ -19,8 +20,10 @@
           
           // Public methods
           public function generateMap($weatherData) {
-              $background = parent::getBackgroundImage();
+              // Get background image
+              $map = parent::getBackgroundImage();
 
+              // Add temperatures
               foreach ($weatherData as $currentWeatherData) {
                   // TODO: Improve positioning
                   
@@ -35,22 +38,26 @@
                   $splitCharacterOffset = 40;
                   
                   // Draw minimum temperature
-                  imagettftext($background, $fontSize, $textAngle,
+                  imagettftext($map, $fontSize, $textAngle,
                                $destinationCoordinates->x, $destinationCoordinates->y,
                                $fontTemperatureMinimum, $fontFile, $currentWeatherData->temperature->minimum);
                   
                   // Draw split character
-                  imagettftext($background, $fontSize, $textAngle,
+                  imagettftext($map, $fontSize, $textAngle,
                                $destinationCoordinates->x + $splitCharacterOffset, $destinationCoordinates->y,
                                $fontSplitCharacter, $fontFile, '/');
                   
                   // Draw maximum temperature
-                  imagettftext($background, $fontSize, $textAngle,
+                  imagettftext($map, $fontSize, $textAngle,
                                $destinationCoordinates->x + 60, $destinationCoordinates->y,
                                $fontTemperatureMaxmimum, $fontFile, $currentWeatherData->temperature->maximum);
               }
 
-              return $background;
+              // Enable transparency
+              $map = \WeatherMap\UserInterface\ImageHelper::enableTransparency($map);              
+              
+              // Returns
+              return $map;
           }
 
       }

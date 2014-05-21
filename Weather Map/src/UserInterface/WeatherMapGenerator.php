@@ -42,15 +42,12 @@
           
           
           public static function getBackgroundImage() {
-              $background = imagecreatefrompng('media/images/switzerland_map.png');
-              $background = \WeatherMap\UserInterface\ImageHelper::enableTransparency($background);
-                            
-              return $background;
+              return imagecreatefrompng('media/images/switzerland_map.png');
           }
           
           
           public static function getCoordinateForIcon($region, $iconSize) {
-              // TODO: Make the icons a little smaler
+              // TODO: Check icon size
               
               // Get the base coordinate
               $baseCoordinate = self::getBaseCoordinate($region);

@@ -17,48 +17,43 @@
 
           // Protected methods
           protected static function getIconForWeatherCondition($weatherCondition) {
-              $icon = null;
-              
               switch ($weatherCondition) {
                   case \WeatherMap\WeatherCondition::Sunny:
-                      $icon = imagecreatefrompng('media/icons/weather/sunny.png');
-                      break;
+                      return imagecreatefrompng('media/icons/weather/sunny.png');
                   case \WeatherMap\WeatherCondition::Cloudy:
-                      $icon = imagecreatefrompng('media/icons/weather/cloudy.png');
-                      break;
+                      return imagecreatefrompng('media/icons/weather/cloudy.png');
                   case \WeatherMap\WeatherCondition::Rain:
-                      $icon = imagecreatefrompng('media/icons/weather/rain.png');
-                      break;
+                      return imagecreatefrompng('media/icons/weather/rain.png');
                   case \WeatherMap\WeatherCondition::Thunderstorm:
-                      $icon = imagecreatefrompng('media/icons/weather/thunderstorm.png');
-                      break;
+                      return imagecreatefrompng('media/icons/weather/thunderstorm.png');
                   case \WeatherMap\WeatherCondition::Snow:
-                      $icon = imagecreatefrompng('media/icons/weather/snow.png');
-                      break;
+                      return imagecreatefrompng('media/icons/weather/snow.png');
               }
-              
-              $icon = \WeatherMap\UserInterface\ImageHelper::enableTransparency($icon);
-              
-              return $icon;
           }
           
           // Public methods
           public function generateMap($weatherData) {
-             $background = parent::getBackgroundImage();
+             // Get background image
+             $map = parent::getBackgroundImage();
 
+             // Add weather icons
              foreach ($weatherData as $currentWeatherData) {
                  $icon = self::getIconForWeatherCondition($currentWeatherData->weatherCondition);
                  $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
-                 $destinationCoordinates = parent::getCoordinateForIcon($currentWeatherData->region, $iconSize);                  
+                 $destinationCoordinates = parent::getCoordinateForIcon($currentWeatherData->region, $iconSize);
                  
-                 imagecopymerge($background, $icon,
-                                $destinationCoordinates->x, $destinationCoordinates->y,
-                                0, 0,
-                                $iconSize->width, $iconSize->height, 70);
+                 imagecopy($map, $icon,
+                           $destinationCoordinates->x, $destinationCoordinates->y,
+                           0, 0,
+                           $iconSize->width, $iconSize->height);
                  imagedestroy($icon);
              }
 
-             return $background;
+             // Enable transparency
+             $map = \WeatherMap\UserInterface\ImageHelper::enableTransparency($map);
+             
+             // Return
+             return $map;
           }
 
       }
