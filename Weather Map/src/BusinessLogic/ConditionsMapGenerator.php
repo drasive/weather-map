@@ -8,6 +8,8 @@
 
           // Public methods
           public function generateMap($date) {
+              // TODO: _ Implement caching
+              
               // Get weather data
               $weatherData = parent::getWeatherData($date);
               

@@ -19,7 +19,16 @@
           
           // Private methods
           private static function getUnparsedWeatherData() {
-              // TODO: _ Change to File..
+              // TODO: _ DO ALL THE CACHE THINGS
+              // SOMEHOW FORCE THIS CACHING SO NO CONCURRENT WRITES AND STUFF COULD HAPPEN
+              
+              if ('! does todays file exist') {
+                // get todays file from website and store it
+              }
+              
+              // get file from hdd
+              
+              // TODO: _ Change to FilerREADER-STUFF..
               $dataReader = new \WeatherMap\DataAccess\WebsiteWeatherDataReader();
               $dataSource = \WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceURL();
               

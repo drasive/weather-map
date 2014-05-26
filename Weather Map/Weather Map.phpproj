@@ -24,7 +24,7 @@
     <Compile Include="src\BusinessLogic\TemperaturesMapGenerator.php" />
     <Compile Include="src\BusinessLogic\WeatherDataParser.php" />
     <Compile Include="src\BusinessLogic\ArrayWeatherDataParser.php" />
-    <Compile Include="src\BusinessLogic\WeatherDataCacher.php" />
+    <Compile Include="src\BusinessLogic\CacheManager.php" />
     <Compile Include="src\DataAccess\FileWeatherDataReader.php" />
     <Compile Include="src\Size.php" />
     <Compile Include="src\DataAccess\WeatherDataReader.php" />
