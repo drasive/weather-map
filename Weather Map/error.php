@@ -5,14 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Dimitri Vranken" />
 
-    <title>Error - Formular-Generator</title>
+    <title>Error - Weather Map</title>
     <link rel="shortcut icon" href="media/icons/sun.ico">
 
+    <!-- jQuery -->
     <script src="http://code.jquery.com/jquery.js"></script>
 
+    <!-- Bootstrap -->
     <script src="scripts/js/bootstrap.min.js"></script>
     <link href="style/css/bootstrap.css" rel="stylesheet" media="screen" />
 
+    <!-- Style -->
     <link href="style/css/style.css" rel="stylesheet" />
 </head>
 <body>
@@ -27,7 +30,7 @@
                 <h1 class="error">Error.</h1>
                 <h2 class="error">I fucked up, sorry!</h2>
                 <p class="lead">
-                    Back to the <a href="/generate_input_form.php">Homepage</a>.
+                    Back to the <a href="index.php">Homepage</a>.
                 </p>
             </div>
             <aside class="hidden-xs col-sm-6 col-md-6 col-lg-6 pull-right">
