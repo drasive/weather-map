@@ -23,13 +23,13 @@
           // Public methods
           // TODO: _ Implement
           public static function checkCaches() {
-              if (isTodaysWeatherDataCached()) {
-                  cacheTodaysWeatherData();
-              }
-
-              if (areTodaysWeatherMapsCached()) {
-                  cacheTodaysWeatherMaps();
-              }
+             //if (isTodaysWeatherDataCached()) {
+             //    cacheTodaysWeatherData();
+             //}
+             //
+             //if (areTodaysWeatherMapsCached()) {
+             //    cacheTodaysWeatherMaps();
+             //}
           }
 
       }

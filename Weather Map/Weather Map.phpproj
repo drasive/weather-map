@@ -19,12 +19,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="about.php" />
+    <Compile Include="src\BusinessLogic\PathManager.php" />
     <Compile Include="src\BusinessLogic\ParameterValidator.php" />
     <Compile Include="src\BusinessLogic\PollinationMapGenerator.php" />
     <Compile Include="src\BusinessLogic\TemperaturesMapGenerator.php" />
     <Compile Include="src\BusinessLogic\WeatherDataParser.php" />
     <Compile Include="src\BusinessLogic\ArrayWeatherDataParser.php" />
     <Compile Include="src\BusinessLogic\CacheManager.php" />
+    <Compile Include="src\DataAccess\FileManager.php" />
     <Compile Include="src\DataAccess\FileWeatherDataReader.php" />
     <Compile Include="src\Size.php" />
     <Compile Include="src\DataAccess\WeatherDataReader.php" />
@@ -59,8 +61,8 @@
     <Compile Include="weather_generator.php" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="data\weather data\" />
-    <Folder Include="data\weather maps\" />
+    <Folder Include="data\weather_data\" />
+    <Folder Include="data\weather_maps\" />
     <Folder Include="includes\" />
     <Folder Include="media\" />
     <Folder Include="media\icons\" />

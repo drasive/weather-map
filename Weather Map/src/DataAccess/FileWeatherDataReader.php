@@ -4,14 +4,7 @@
       
       class FileWeatherDataReader extends WeatherDataReader {
           
-          public function readData($fileURL) {
-              // Get data
-              $weatherDataUnparsed = file($fileURL);
-              
-              if ($weatherDataUnparsed == null || $weatherDataUnparsed == false || $weatherDataUnparsed = '') {
-                  return null;
-              }
-              
+          public function readData($weatherDataUnparsed) {
               // Parse data
               $weatherDataParsed = array();
               
@@ -20,7 +13,7 @@
                   array_push($weatherDataParsed, $rowParsed);
               }
               
-              // Return converted data
+              // Return parsed data
               return $weatherDataParsed;
           }
           

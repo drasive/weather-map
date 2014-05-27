@@ -2,8 +2,11 @@
       
       require_once('src/Coordinate.php');      
       require_once('src/DataAccess/WebsiteWeatherDataReader.php');
+      require_once('src/DataAccess/FileWeatherDataReader.php');
+      require_once('src/DataAccess/FileManager.php');
       require_once('src/BusinessLogic/ConfigurationReader.php');
       require_once('src/BusinessLogic/ArrayWeatherDataParser.php');
+      require_once('src/BusinessLogic/PathManager.php');      
       
       abstract class WeatherMapGenerator {
           
@@ -22,17 +25,22 @@
               // TODO: _ DO ALL THE CACHE THINGS
               // SOMEHOW FORCE THIS CACHING SO NO CONCURRENT WRITES AND STUFF COULD HAPPEN
               
-              if ('! does todays file exist') {
-                // get todays file from website and store it
+              $filePath = \WeatherMap\BusinessLogic\PathManager::getCachedWeatherDataFile();
+              if (!\WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceUseCache() || !file_exists($filePath)) {                                    
+                  $websiteDataReader = new \WeatherMap\DataAccess\WebsiteWeatherDataReader();
+                  $dataSource = \WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceURL();                  
+                  $dataToCache = $websiteDataReader->readData($dataSource);
+                  
+                  $dataToWrite = implode($dataToCache);                  
+                  \WeatherMap\DataAccess\FileManager::writeFile($filePath, $dataToWrite);
               }
               
-              // get file from hdd
+              $dataUnparsed = \WeatherMap\DataAccess\FileManager::readFile($filePath);
+              $fileDataReader = new \WeatherMap\DataAccess\FileWeatherDataReader();
+              $data = $fileDataReader->readData($dataUnparsed);
               
-              // TODO: _ Change to FilerREADER-STUFF..
-              $dataReader = new \WeatherMap\DataAccess\WebsiteWeatherDataReader();
-              $dataSource = \WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceURL();
-              
-              return $dataReader->readData($dataSource);
+              // Return
+              return $data;
           }
           
           private static function parseWeatherData($dataUnparsed) {
@@ -57,10 +65,10 @@
               $unparsedData = self::getUnparsedWeatherData();
               $parsedData = self::parseWeatherData($unparsedData);
               $filteredDate = self::filterWeatherData($parsedData, $date);
-                  
+              
               return $filteredDate;
           }
-                    
+          
           // Public methods
           public abstract function generateMap($date);
           

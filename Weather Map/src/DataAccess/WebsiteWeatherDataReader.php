@@ -5,23 +5,15 @@
       class WebsiteWeatherDataReader extends WeatherDataReader {
           
           public function readData($websiteURL) {
-              // Get data
+              // Get unparsed data
               $weatherDataUnparsed = file($websiteURL);
               
-              if ($weatherDataUnparsed == null || $weatherDataUnparsed == false || $weatherDataUnparsed = '') {
+              if ($weatherDataUnparsed == null || $weatherDataUnparsed == false || $weatherDataUnparsed == '') {
                   return null;
               }
               
-              // Parse data
-              $weatherDataParsed = array();
-              
-              foreach($weatherDataUnparsed as $rowUnparsed) {
-                  $rowParsed = explode(';', $rowUnparsed);
-                  array_push($weatherDataParsed, $rowParsed);
-              }
-              
-              // Return converted data
-              return $weatherDataParsed;
+              // Return unparsed data
+              return $weatherDataUnparsed;
           }
           
       }
