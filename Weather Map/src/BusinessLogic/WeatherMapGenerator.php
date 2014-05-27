@@ -22,8 +22,7 @@
           
           // Private methods
           private static function getUnparsedWeatherData() {
-              // TODO: _ DO ALL THE CACHE THINGS
-              // SOMEHOW FORCE THIS CACHING SO NO CONCURRENT WRITES AND STUFF COULD HAPPEN
+              // TODO: SOMEHOW FORCE THIS CACHING SO NO CONCURRENT WRITES AND STUFF COULD HAPPEN
               
               $filePath = \WeatherMap\BusinessLogic\PathManager::getCachedWeatherDataFile();
               if (!\WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceUseCache() || !file_exists($filePath)) {                                    

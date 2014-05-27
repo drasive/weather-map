@@ -23,7 +23,7 @@
           
           public static function getCachedWeatherMapFile() {
               // TODO: Fix
-              $filename = date('Y-m-d', time()) . '.csv';              
+              $filename = date('Y-m-d', time()) . '.png';              
               return self::getWeatherDataFolder() . $filename;
           }
           
