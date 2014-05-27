@@ -19,25 +19,25 @@
           protected static $m_mapsUseCache = 'useCache';
           
           // Release section
-          public static function getDebugMode(){ 
+          public static function getDebugMode() { 
               return \WeatherMap\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectioRelease][self::$m_debugMode];
           }
           
-          public static function getReleaseDate(){ 
+          public static function getReleaseDate() { 
               return \WeatherMap\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectioRelease][self::$m_releaseDate];
           }
           
           // Webservice section
-          public static function getWebserviceURL(){ 
+          public static function getWebserviceURL() { 
               return \WeatherMap\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectionWebservice][self::$m_webserviceURL];
           }
           
-          public static function getWebserviceUseCache(){ 
-              return \WeatherMap\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectionWebservice][self::$m_webserviceUseCahe];
+          public static function getWebserviceUseCache() { 
+              return \WeatherMap\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectionWebservice][self::$m_webserviceUseCache];
           }
           
           // Webservice section
-          public static function getMapsCache(){ 
+          public static function getMapsCache() { 
               return \WeatherMap\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectionMaps][self::$m_mapsUseCache];
           }
           
