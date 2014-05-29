@@ -20,7 +20,7 @@
                   $mapToCache = $mapGenerator->generateMap($weatherData);
                   
                   // Cache map
-                  imagepng($mapToCache, $filePath);                  
+                  imagepng($mapToCache, $filePath);
               }
               
               // Get map from cache
