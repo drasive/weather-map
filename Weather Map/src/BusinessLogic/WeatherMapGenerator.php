@@ -3,7 +3,7 @@
       require_once('src/Coordinate.php');      
       require_once('src/DataAccess/WebsiteWeatherDataReader.php');
       require_once('src/DataAccess/FileWeatherDataReader.php');
-      require_once('src/DataAccess/FileManager.php');
+      require_once('src/DataAccess/IOManager.php');
       require_once('src/BusinessLogic/ConfigurationReader.php');
       require_once('src/BusinessLogic/ArrayWeatherDataParser.php');
       require_once('src/BusinessLogic/PathManager.php');      
@@ -13,7 +13,7 @@
           // Protected variable
           protected $date;
           
-          // Public properties
+          // Public propertiesd
           public function __get($property) {
               if (property_exists($this, $property)) {
                   return $this->$property;
@@ -22,19 +22,9 @@
           
           // Private methods
           private static function getUnparsedWeatherData() {
-              // TODO: SOMEHOW FORCE THIS CACHING SO NO CONCURRENT WRITES AND STUFF COULD HAPPEN
-              
               $filePath = \WeatherMap\BusinessLogic\PathManager::getCachedWeatherDataFile();
-              if (!\WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceUseCache() || !file_exists($filePath)) {                                    
-                  $websiteDataReader = new \WeatherMap\DataAccess\WebsiteWeatherDataReader();
-                  $dataSource = \WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceURL();                  
-                  $dataToCache = $websiteDataReader->readData($dataSource);
-                  
-                  $dataToWrite = implode($dataToCache);                  
-                  \WeatherMap\DataAccess\FileManager::writeFile($filePath, $dataToWrite);
-              }
+              $dataUnparsed = \WeatherMap\DataAccess\IOManager::readFile($filePath);
               
-              $dataUnparsed = \WeatherMap\DataAccess\FileManager::readFile($filePath);
               $fileDataReader = new \WeatherMap\DataAccess\FileWeatherDataReader();
               $data = $fileDataReader->readData($dataUnparsed);
               
@@ -70,6 +60,18 @@
           
           // Public methods
           public abstract function generateMap($date);
+          
+          public static function checkWeatherDataCache() {              
+              $filePath = \WeatherMap\BusinessLogic\PathManager::getCachedWeatherDataFile();
+              if (!\WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceUseCache() || !file_exists($filePath)) {                                    
+                  $websiteDataReader = new \WeatherMap\DataAccess\WebsiteWeatherDataReader();
+                  $dataSource = \WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceURL();                  
+                  $dataToCache = $websiteDataReader->readData($dataSource);
+                  
+                  $dataToWrite = implode($dataToCache);                  
+                  \WeatherMap\DataAccess\IOManager::writeFile($filePath, $dataToWrite);
+              }
+          }
           
       }
       

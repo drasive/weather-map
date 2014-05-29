@@ -26,12 +26,13 @@
     <Compile Include="src\BusinessLogic\WeatherDataParser.php" />
     <Compile Include="src\BusinessLogic\ArrayWeatherDataParser.php" />
     <Compile Include="src\BusinessLogic\CacheManager.php" />
-    <Compile Include="src\DataAccess\FileManager.php" />
+    <Compile Include="src\DataAccess\IOManager.php" />
     <Compile Include="src\DataAccess\FileWeatherDataReader.php" />
     <Compile Include="src\Size.php" />
     <Compile Include="src\DataAccess\WeatherDataReader.php" />
     <Compile Include="src\DataAccess\WebsiteWeatherDataReader.php" />
     <Compile Include="src\Coordinate.php" />
+    <Compile Include="src\WeatherMapType.php" />
     <Compile Include="src\UserInterface\PollinationMapGenerator.php" />
     <Compile Include="src\UserInterface\TemperaturesMapGenerator.php" />
     <Compile Include="src\UserInterface\WeatherMapGenerator.php" />
@@ -61,8 +62,6 @@
     <Compile Include="weather_generator.php" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="data\weather_data\" />
-    <Folder Include="data\weather_maps\" />
     <Folder Include="includes\" />
     <Folder Include="media\" />
     <Folder Include="media\icons\" />

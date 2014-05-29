@@ -10,10 +10,11 @@ require_once('src/BusinessLogic/CacheManager.php');
 require_once('src/BusinessLogic/DateTimeHelper.php');
 require_once('src/BusinessLogic/ParameterValidator.php');
 require_once('src/BusinessLogic/ConfigurationReader.php');
+require_once('src/BusinessLogic/WeatherMapGenerator.php');
 require_once('src/HttpParameterHelper.php');
 
 // Check caches
-\WeatherMap\BusinessLogic\CacheManager::checkCaches();
+\WeatherMap\BusinessLogic\WeatherMapGenerator::checkWeatherDataCache();
 
 // Get the HTTP parameters
 $dateHttpParameter = $_GET['date'];
