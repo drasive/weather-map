@@ -22,6 +22,7 @@
     <Compile Include="src\BusinessLogic\PathManager.php" />
     <Compile Include="src\BusinessLogic\ParameterValidator.php" />
     <Compile Include="src\BusinessLogic\PollinationMapGenerator.php" />
+    <Compile Include="src\BusinessLogic\WindMapGenerator.php" />
     <Compile Include="src\BusinessLogic\TemperaturesMapGenerator.php" />
     <Compile Include="src\BusinessLogic\WeatherDataParser.php" />
     <Compile Include="src\BusinessLogic\ArrayWeatherDataParser.php" />
@@ -32,6 +33,7 @@
     <Compile Include="src\DataAccess\WeatherDataReader.php" />
     <Compile Include="src\DataAccess\WebsiteWeatherDataReader.php" />
     <Compile Include="src\Coordinate.php" />
+    <Compile Include="src\UserInterface\WindMapGenerator.php" />
     <Compile Include="src\WeatherMapType.php" />
     <Compile Include="src\UserInterface\PollinationMapGenerator.php" />
     <Compile Include="src\UserInterface\TemperaturesMapGenerator.php" />
@@ -65,6 +67,7 @@
     <Folder Include="includes\" />
     <Folder Include="media\" />
     <Folder Include="media\icons\" />
+    <Folder Include="media\icons\wind\" />
     <Folder Include="media\icons\pollination\" />
     <Folder Include="media\icons\weather\" />
     <Folder Include="media\images\" />
@@ -99,6 +102,8 @@
     <Content Include="media\icons\weather\Sunny.psd" />
     <Content Include="media\icons\weather\thunderstorm.png" />
     <Content Include="media\icons\weather\Thunderstorm.psd" />
+    <Content Include="media\icons\wind\arrow.png" />
+    <Content Include="media\icons\wind\arrow.psd" />
     <Content Include="media\images\argument_invalid.png" />
     <Content Include="media\images\switzerland_map.png" />
     <Content Include="media\images\Switzerland map.psd" />

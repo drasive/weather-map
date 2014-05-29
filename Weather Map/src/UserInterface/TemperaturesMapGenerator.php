@@ -45,7 +45,7 @@
               // Get background image
               $map = parent::getBackgroundImage();
 
-              // Add temperatures
+              // Add text
               foreach ($weatherData as $currentWeatherData) {
                   $destinationCoordinates = parent::getCoordinateForText($currentWeatherData->region);
                   

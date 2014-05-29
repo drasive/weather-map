@@ -36,7 +36,7 @@
              // Get background image
              $map = parent::getBackgroundImage();
 
-             // Add weather icons
+             // Add icons
              foreach ($weatherData as $currentWeatherData) {
                  $icon = self::getIconForWeatherCondition($currentWeatherData->weatherCondition);
                  $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));

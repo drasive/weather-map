@@ -25,7 +25,7 @@
               // Get background image
               $map = parent::getBackgroundImage();
 
-              // Add pollination icons
+              // Add icons
               foreach ($weatherData as $currentWeatherData) {
                   $icon = self::getIconForPollination($currentWeatherData->pollination);
                   

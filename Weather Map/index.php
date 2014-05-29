@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 
 <?php
-// TODO: Use the same weather data for all the maps (and possibly all the days)
-
 // TODO: Check if the webservice can be reached or show an error
 
 // Includes
@@ -133,7 +131,7 @@ else {
                         </li>
                         <li>
                             <h2 class="image-title">Wind</h2>
-                            <?php //echo generateMapImageElement('wind_map.php', 'Shows the wind direction an speed of a region.'); ?>
+                            <?php echo generateMapImageElement('wind_map.php', 'Shows the wind direction an speed of a region.'); ?>
                         </li>
                         <li>
                             <h2 class="image-title">Pollination</h2>
