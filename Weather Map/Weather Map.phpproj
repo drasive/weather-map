@@ -99,6 +99,7 @@
     <Content Include="media\icons\weather\Sunny.psd" />
     <Content Include="media\icons\weather\thunderstorm.png" />
     <Content Include="media\icons\weather\Thunderstorm.psd" />
+    <Content Include="media\images\argument_invalid.png" />
     <Content Include="media\images\switzerland_map.png" />
     <Content Include="media\images\Switzerland map.psd" />
     <Content Include="style\fonts\arial.ttf" />

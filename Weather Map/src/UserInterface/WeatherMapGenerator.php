@@ -17,19 +17,17 @@
           
           // Protected methods
           protected static function getBaseCoordinate($region) {
-              // TODO: Improve coordinates
-              
               switch ($region) {
                   case \WeatherMap\Region::Geneva:
                       return new \WeatherMap\Coordinate(75, 645);
                   case \WeatherMap\Region::Valais:
                       return new \WeatherMap\Coordinate(430, 625);
                   case \WeatherMap\Region::Ticino:
-                      return new \WeatherMap\Coordinate(650, 520);
+                      return new \WeatherMap\Coordinate(892, 638);
                   case \WeatherMap\Region::Grisons:
                       return new \WeatherMap\Coordinate(1100, 480);
                   case \WeatherMap\Region::Zurich:
-                      return new \WeatherMap\Coordinate(772, 142);
+                      return new \WeatherMap\Coordinate(772, 138);
                   case \WeatherMap\Region::Berne:
                       return new \WeatherMap\Coordinate(458, 330);
                   case \WeatherMap\Region::Basle:                      
@@ -47,8 +45,6 @@
           
           
           public static function getCoordinateForIcon($region, $iconSize) {
-              // TODO: Check icon size
-              
               // Get the base coordinate
               $baseCoordinate = self::getBaseCoordinate($region);
               
@@ -68,8 +64,8 @@
               $baseCoordinate = self::getBaseCoordinate($region);
               
               // Center the text
-              $xOffset =  - (25);
-              $yOffset =  - (5);
+              $xOffset =  -25;
+              $yOffset =  40;
               $coordinate =  new \WeatherMap\Coordinate($baseCoordinate->x + $xOffset, $baseCoordinate->y + $yOffset);
               
               // Return

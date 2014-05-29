@@ -25,6 +25,7 @@ if (isset($dateHttpParameter) && \WeatherMap\HttpParameterHelper::hasValue($date
 }
 
 // Validate the HTTP parameters
+// TODO: Redirect to clean page
 $defaultDate = time();
 
 if ($date == null || $date == false || date == '') { // Date couldn't be obtained
@@ -124,7 +125,7 @@ else {
                     <ul class="slides">
                         <li>
                             <h2 class="image-title">Conditions</h2>
-                            <?php echo generateMapImageElement('conditions_map.php', 'Show the general weather conditions of a region.'); ?>
+                            <?php echo generateMapImageElement('conditions_map.php', 'Shows the general weather conditions of a region.'); ?>
                         </li>
                         <li>
                             <h2 class="image-title">Temperatures</h2>
