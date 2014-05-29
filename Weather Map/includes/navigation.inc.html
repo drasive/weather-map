@@ -9,7 +9,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul id="navigationBar" class="nav navbar-nav">
-                <li><a id="nav_form_generator" href="/index.php">Today</a></li>
+                <li><a id="nav_today" href="/index.php">Today</a></li>
             </ul>
         </div>
     </div>
@@ -43,7 +43,7 @@
                 menutItemName = daysOfWeek[menuItemDay.getDay()];
             }
 
-            menuItems.push('<li><a href="' + basePageURL + '?date=' + formatDate(menuItemDay) + '">' + menutItemName + '</a></li>');
+            menuItems.push('<li><a id="nav_' + formatDate(menuItemDay) + '" href="' + basePageURL + '?date=' + formatDate(menuItemDay) + '">' + menutItemName + '</a></li>');
         };
 
         navigationBar.append(menuItems.join(''));

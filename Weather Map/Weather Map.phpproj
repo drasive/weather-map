@@ -146,8 +146,8 @@
     <Content Include="style\fonts\space_invaders.svg" />
     <Content Include="style\fonts\space_invaders.ttf" />
     <Content Include="style\fonts\space_invaders.woff" />
-    <Content Include="_Project Management\Choice Day.png" />
-    <Content Include="_Project Management\Choice Map.png" />
+    <Content Include="_Project Management\Selection of day.png" />
+    <Content Include="_Project Management\Selection of map.png" />
     <Content Include="_Project Management\Concept.docx" />
     <Content Include="_Project Management\Concept.pdf" />
   </ItemGroup>

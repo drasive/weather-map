@@ -8,6 +8,6 @@ function setActiveNavigationLink(linkId) {
         navigationLink.className += " active ";
     }
     else {
-        throw new Error("Invalid linkId");
+        throw new Error("Invalid linkId (" + linkId + ")");
     }
 }
