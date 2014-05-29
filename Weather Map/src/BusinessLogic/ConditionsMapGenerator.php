@@ -3,14 +3,13 @@
       require_once('src/BusinessLogic/WeatherMapGenerator.php');
       
       require_once('src/UserInterface/ConditionsMapGenerator.php');
+      require_once('src/UserInterface/ImageHelper.php');
       require_once('src/WeatherMapType.php');
 
       class ConditionsMapGenerator extends WeatherMapGenerator {
 
           // Public methods
           public function generateMap($date) {
-              // TODO: _
-              
               $filePath = \WeatherMap\BusinessLogic\PathManager::getCachedWeatherMapFile(\WeatherMap\WeatherMapType::Conditions);
               if (!\WeatherMap\BusinessLogic\ConfigurationReader::getMapsCache() || !file_exists($filePath)) {
                   // Get weather data
@@ -26,6 +25,9 @@
               
               // Get map from cache
               $map = imagecreatefrompng($filePath);
+              
+              // Enable transparency
+              $map = \WeatherMap\UserInterface\ImageHelper::enableTransparency($map);
 
               // Return map
               return $map;
