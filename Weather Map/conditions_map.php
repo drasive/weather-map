@@ -16,10 +16,7 @@ if (isset($dateHttpParameter) && \WeatherMap\HttpParameterHelper::hasValue($date
 }
 
 // Validate the HTTP parameters
-$invalidDate = time() - (60 * 60 * 24);
-
-if ($date == null || $date == false || date == '' ||
-    $date != \WeatherMap\BusinessLogic\ParameterValidator::validateRequestedMapDate($date, $invalidDate)) { // Date couldn't be obtained or is invalid
+if ($date == null || $date == false || date == '' || !\WeatherMap\BusinessLogic\ParameterValidator::isRequestedMapDateValid($date)) { // Date couldn't be obtained or is invalid
     $argumentInvalid = imagecreatefrompng('media/images/argument_invalid.png');
     imagepng($argumentInvalid);
     imagedestroy($argumentInvalid);

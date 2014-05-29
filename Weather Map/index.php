@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 <?php
+// TODO: Improve load times of cached images (add caching to http request?)
+
 // TODO: Check if the webservice can be reached or show an error
 
 // Includes
@@ -23,14 +25,14 @@ if (isset($dateHttpParameter) && \WeatherMap\HttpParameterHelper::hasValue($date
 }
 
 // Validate the HTTP parameters
-// TODO: Redirect to clean page
 $defaultDate = time();
+$invalidDate = time() - (60 * 60 * 24);
 
 if ($date == null || $date == false || date == '') { // Date couldn't be obtained
     $date = $defaultDate;
 }
-else {
-    $date = \WeatherMap\BusinessLogic\ParameterValidator::validateRequestedMapDate($date, $defaultDate);
+else if (!\WeatherMap\BusinessLogic\ParameterValidator::isRequestedMapDateValid($date)) { // Obtained date is invalid
+    header('Location: index.php');
 }
 
 // Process the HTTP parameters
