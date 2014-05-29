@@ -1,6 +1,6 @@
 <?php namespace WeatherMap\BusinessLogic;
 
-       require_once('src/DataAccess/IOManager.php');
+      require_once('src/DataAccess/IOManager.php');
       
       class PathManager {
           
@@ -30,6 +30,20 @@
               return $cachedWeatherDataFolder;
           }
           
+          
+          protected static function getCachedWeatherMapsFolder($date) {
+              $cachedWeatherMapsFolder = self::getCacheFolder() . 'weather_maps/';
+              \WeatherMap\DataAccess\IOManager::checkFolder($cachedWeatherMapsFolder);
+              
+              $cachedWeatherMapsDataFolder = $cachedWeatherMapsFolder . date('Y-m-d', time()) . '/';
+              \WeatherMap\DataAccess\IOManager::checkFolder($cachedWeatherMapsDataFolder);
+              
+              $cachedWeatherMapsDateFolder = $cachedWeatherMapsDataFolder . date('Y-m-d', $date) . '/';
+              \WeatherMap\DataAccess\IOManager::checkFolder($cachedWeatherMapsDateFolder);
+              
+              return $cachedWeatherMapsDateFolder;
+          }
+          
           // Public methods
           public static function getCachedWeatherDataFile() {
               $filePath = date('Y-m-d', time()) . '.csv';
@@ -37,17 +51,7 @@
           }
           
           
-          public static function getCachedWeatherMapsFolder() {
-              $cachedWeatherMapsFolder = self::getCacheFolder() . 'weather_maps/';
-              \WeatherMap\DataAccess\IOManager::checkFolder($cachedWeatherMapsFolder);
-               
-              $cachedWeatherMapsSubfolder = $cachedWeatherMapsFolder . date('Y-m-d', time()) . '/';
-              \WeatherMap\DataAccess\IOManager::checkFolder($cachedWeatherMapsSubfolder);
-              
-              return $cachedWeatherMapsSubfolder;
-          }
-          
-          public static function getCachedWeatherMapFile($weatherMapType) {
+          public static function getCachedWeatherMapFile($date, $weatherMapType) {
               $fileName = null;
               
               switch ($weatherMapType) {
@@ -66,7 +70,7 @@
               }
               
               $fileName .= '.png';              
-              return self::getCachedWeatherMapsFolder() . $fileName;
+              return self::getCachedWeatherMapsFolder($date) . $fileName;
           }
           
       }

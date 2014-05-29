@@ -10,7 +10,7 @@
 
           // Public methods
           public function generateMap($date) {
-              $filePath = \WeatherMap\BusinessLogic\PathManager::getCachedWeatherMapFile(\WeatherMap\WeatherMapType::Conditions);
+              $filePath = \WeatherMap\BusinessLogic\PathManager::getCachedWeatherMapFile($date, \WeatherMap\WeatherMapType::Conditions);
               if (!\WeatherMap\BusinessLogic\ConfigurationReader::getMapsCache() || !file_exists($filePath)) {
                   // Get weather data
                   $weatherData = parent::getWeatherData($date);
