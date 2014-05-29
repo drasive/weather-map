@@ -19,17 +19,17 @@
           protected static function getBaseCoordinate($region) {
               switch ($region) {
                   case \WeatherMap\Region::Geneva:
-                      return new \WeatherMap\Coordinate(75, 645);
+                      return new \WeatherMap\Coordinate(70, 645);
                   case \WeatherMap\Region::Valais:
-                      return new \WeatherMap\Coordinate(430, 625);
+                      return new \WeatherMap\Coordinate(429, 625);
                   case \WeatherMap\Region::Ticino:
                       return new \WeatherMap\Coordinate(892, 638);
                   case \WeatherMap\Region::Grisons:
-                      return new \WeatherMap\Coordinate(1100, 480);
+                      return new \WeatherMap\Coordinate(1090, 480);
                   case \WeatherMap\Region::Zurich:
-                      return new \WeatherMap\Coordinate(772, 138);
+                      return new \WeatherMap\Coordinate(767, 138);
                   case \WeatherMap\Region::Berne:
-                      return new \WeatherMap\Coordinate(458, 330);
+                      return new \WeatherMap\Coordinate(452, 330);
                   case \WeatherMap\Region::Basle:                      
                       return new \WeatherMap\Coordinate(495, 70);
               }
@@ -58,15 +58,12 @@
           }
           
           public static function getCoordinateForText($region) {
-              // TODO: Finish
-              
               // Get the base coordinate
               $baseCoordinate = self::getBaseCoordinate($region);
               
               // Center the text
-              $xOffset =  -25;
-              $yOffset =  40;
-              $coordinate =  new \WeatherMap\Coordinate($baseCoordinate->x + $xOffset, $baseCoordinate->y + $yOffset);
+              $yOffset =  42;
+              $coordinate =  new \WeatherMap\Coordinate($baseCoordinate->x, $baseCoordinate->y + $yOffset);
               
               // Return
               return $coordinate;

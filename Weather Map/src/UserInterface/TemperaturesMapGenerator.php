@@ -7,14 +7,36 @@
 
           // Protected methods
           protected static function getColorForTemperature($temperature) {
+              $color = null;              
+              $image = imagecreatetruecolor(1, 1);
+              
               if ($temperature < 0) {
-                  return imagecolorallocate(25, 25, 255);
+                  $color = imagecolorallocate($image, 25, 25, 255);
               }
-              else if ($temperature > 30) {
-                  return imagecolorallocate(250, 70, 0);
+              else if ($temperature > 35) {
+                  $color = imagecolorallocate($image, 250, 70, 0);
               }
               else {
-                  return parent::getNeutralFontColor();
+                  $color = parent::getNeutralFontColor();
+              }
+              
+              imagedestroy($image);
+              
+              return $color;
+          }          
+          
+          protected static function getNegativeHorizontalOffset($string) {
+              if (strlen($string) == 1) {
+                  return 15;
+              }
+              else if (strlen($string) == 2) {
+                  return 29;
+              }
+              else if (strlen($string) == 3) {
+                  return 37;
+              }
+              else {
+                  return null;
               }
           }
           
@@ -25,32 +47,34 @@
 
               // Add temperatures
               foreach ($weatherData as $currentWeatherData) {
-                  // TODO: Improve positioning
-                  
-                  $fontTemperatureMinimum = self::getColorForTemperature($currentWeatherData->temperature->minimum);
-                  $fontSplitCharacter = parent::getNeutralFontColor();
-                  $fontTemperatureMaximum = self::getColorForTemperature($currentWeatherData->temperature->maximum);
                   $destinationCoordinates = parent::getCoordinateForText($currentWeatherData->region);
                   
                   $fontFile = 'style/fonts/arial.ttf';
                   $fontSize = 18;
                   $textAngle = 0;
-                  $splitCharacterOffset = 40;
                   
                   // Draw minimum temperature
+                  $minimumTemperatureText = $currentWeatherData->temperature->minimum;                  
+                  $minimumTemperatureOffset = self::getNegativeHorizontalOffset($minimumTemperatureText);
+                  $minimumTemperatureFontColor = self::getColorForTemperature($currentWeatherData->temperature->minimum);
                   imagettftext($map, $fontSize, $textAngle,
-                               $destinationCoordinates->x, $destinationCoordinates->y,
-                               $fontTemperatureMinimum, $fontFile, $currentWeatherData->temperature->minimum);
+                               $destinationCoordinates->x - $minimumTemperatureOffset, $destinationCoordinates->y,
+                               $minimumTemperatureFontColor, $fontFile, $minimumTemperatureText);
                   
                   // Draw split character
+                  $splitCharacterText = '/';
+                  $splitCharacterFontColor = parent::getNeutralFontColor();
                   imagettftext($map, $fontSize, $textAngle,
-                               $destinationCoordinates->x + $splitCharacterOffset, $destinationCoordinates->y,
-                               $fontSplitCharacter, $fontFile, '/');
+                               $destinationCoordinates->x, $destinationCoordinates->y,
+                               $splitCharacterFontColor, $fontFile, $splitCharacterText);
                   
                   // Draw maximum temperature
+                  $maximumTemperatureText = $currentWeatherData->temperature->maximum;
+                  $maximumTemperatureOffset = 11;
+                  $maximimTemperatureFontColor = self::getColorForTemperature($currentWeatherData->temperature->maximum);
                   imagettftext($map, $fontSize, $textAngle,
-                               $destinationCoordinates->x + 60, $destinationCoordinates->y,
-                               $fontTemperatureMaxmimum, $fontFile, $currentWeatherData->temperature->maximum);
+                               $destinationCoordinates->x + $maximumTemperatureOffset, $destinationCoordinates->y,
+                               $maximimTemperatureFontColor, $fontFile, $maximumTemperatureText);
               }
 
               // Enable transparency
