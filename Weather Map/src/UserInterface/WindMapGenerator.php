@@ -3,43 +3,28 @@
       require_once('src/UserInterface/WeatherMapGenerator.php');
       require_once('src/UserInterface/ImageHelper.php');
       require_once('src/Size.php');
+      require_once('src/CardinalDirection.php');
 
       class WindMapGenerator extends WeatherMapGenerator {
 
           // Protected methods
           protected static function getIconForWindDirection($windDirection) {
-              $icon = imagecreatefrompng('media/icons/wind/arrow.png');
-              $angle = null;
+              $angle = \WeatherMap\CardinalDirection::getAngle($windDirection);
               
-              switch ($windDirection) {
-                  case \WeatherMap\CardinalDirection::North:
-                      $angle = 0;
-                      break;
-                  case \WeatherMap\CardinalDirection::NorthEast:
-                      $angle = 45;
-                      break;
-                  case \WeatherMap\CardinalDirection::East:
-                      $angle = 90;
-                      break;
-                  case \WeatherMap\CardinalDirection::SouthEast:
-                      $angle = 120;
-                      break;
-                  case \WeatherMap\CardinalDirection::South:
-                      $angle = 180;
-                      break;
-                  case \WeatherMap\CardinalDirection::SouthWest:
-                      $angle = 225;
-                      break;
-                  case \WeatherMap\CardinalDirection::West:
-                      $angle = 270;
-                      break;
-                  case \WeatherMap\CardinalDirection::NorthWest:
-                      $angle = 315;
-                      break;
+              if ($angle % 90 == 0) { // Is a quarter turn
+                  // Get icon
+                  $icon = imagecreatefrompng('media/icons/wind/arrow_0.png');
+                  
+                  // Rotate icon
+                  $icon = imagerotate($icon, $angle, 0);
               }
-              
-              // Rotate icon
-              $icon = imagerotate($icon, $angle, 0);
+              else { // Is not a quarter turn
+                  // Get icon
+                  $icon = imagecreatefrompng('media/icons/wind/arrow_45.png');
+                  
+                  // Rotate icon
+                  $icon = imagerotate($icon, $angle - 45, 0);
+              }
               
               // Return
               return $icon;
