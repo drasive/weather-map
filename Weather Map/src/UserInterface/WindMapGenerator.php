@@ -58,7 +58,7 @@
                       $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
                       
                       $iconDestinationCoordinates = parent::getCoordinateForIcon($currentWeatherData->region, $iconSize);
-                      $iconYOffset = -25;
+                      $iconYOffset = -18;
                       
                       imagecopy($map, $icon,
                                 $iconDestinationCoordinates->x, $iconDestinationCoordinates->y + $iconYOffset,
