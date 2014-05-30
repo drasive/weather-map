@@ -33,11 +33,10 @@
                   if (iconv != null) {
                       $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
                       $destinationCoordinates = parent::getCoordinateForIconCentered($currentWeatherData->region, $iconSize);                  
-                      
-                      imagecopymerge($map, $icon,
-                                     $destinationCoordinates->x, $destinationCoordinates->y,
-                                     0, 0,
-                                     $iconSize->width, $iconSize->height, 55);
+                                            
+                      \WeatherMap\UserInterface\ImageHelper::copyWithAlpha($map, $icon,
+                                                                           $destinationCoordinates->x, $destinationCoordinates->y,
+                                                                           55);
                       imagedestroy($icon);
                   }
               }

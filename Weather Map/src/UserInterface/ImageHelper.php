@@ -18,6 +18,23 @@
                                  $imageSize->width, $imageSize->height);
               
               return $imageWithTransparencyEnabled;
+          }          
+          
+          // Source: http://php.net/manual/en/function.imagecopymerge.php
+          public static function copyWithAlpha($destination, $source, $destinationX, $destinationY, $transparency, $sourceX = 0, $sourceY = 0) {
+              $sourceSize = new \WeatherMap\Size(imagesx($source), imagesy($source));
+              
+              // Create a cut resource 
+              $cut = imagecreatetruecolor($sourceSize->width, $sourceSize->height); 
+
+              // Copy relevant section of background to the cut resource 
+              imagecopy($cut, $destination, 0, 0, $destinationX, $destinationY, $sourceSize->width, $sourceSize->height); 
+              
+              // Copy relevant section from watermark to the cut resource 
+              imagecopy($cut, $source, 0, 0, $sourceX, $sourceY, $sourceSize->width, $sourceSize->height); 
+              
+              // Insert cut resource to destination image 
+              imagecopymerge($destination, $cut, $destinationX, $destinationY, 0, 0, $sourceSize->width, $sourceSize->height, $transparency); 
           }
           
       }
