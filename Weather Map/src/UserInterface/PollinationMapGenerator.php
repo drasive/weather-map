@@ -7,10 +7,11 @@
       class PollinationMapGenerator extends WeatherMapGenerator {
 
           // Protected methods
-          protected static function getIconForPollination($pollination) {
+          protected static function getIconForPollinationStrength($pollination) {
               switch ($pollination) {
                   case \WeatherMap\Pollination::None:
-                  // TODO: Add image for no pollution
+                      // TODO: Add image for no pollution
+                      return null;
                   case \WeatherMap\Pollination::Weak:
                       return imagecreatefrompng('media/icons/pollination/weak.png');
                   case \WeatherMap\Pollination::Moderate:
@@ -27,16 +28,23 @@
 
               // Add icons
               foreach ($weatherData as $currentWeatherData) {
-                  $icon = self::getIconForPollination($currentWeatherData->pollination);
+                  $icon = self::getIconForPollinationStrength($currentWeatherData->pollination);
                   
                   // TODO: remove null check when image for no pollution is added
-                  if (iconv != null) {
+                  if ($icon != null) {
                       $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
                       $destinationCoordinates = parent::getCoordinateForIconCentered($currentWeatherData->region, $iconSize);                  
-                                            
-                      \WeatherMap\UserInterface\ImageHelper::copyWithAlpha($map, $icon,
-                                                                           $destinationCoordinates->x, $destinationCoordinates->y,
-                                                                           55);
+                      
+                      // Set white to transparent
+                      $transparentColor = imagecolorallocate($icon, 255, 255, 255);
+                      imagecolortransparent($icon, $transparentColor);
+                      
+                      // Merge images
+                      imagecopymerge($map, $icon,
+                                     $destinationCoordinates->x, $destinationCoordinates->y,
+                                     0, 0,
+                                     $iconSize->width, $iconSize->height,
+                                     60);
                       imagedestroy($icon);
                   }
               }
