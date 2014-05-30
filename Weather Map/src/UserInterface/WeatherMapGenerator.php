@@ -57,6 +57,19 @@
               return $coordinate;
           }
           
+          public static function getCoordinateForIconCentered($region, $iconSize) {
+              // Get the base coordinate
+              $baseCoordinate = self::getBaseCoordinate($region);
+              
+              // Center the icon
+              $xOffset =  - ($iconSize->width / 2);
+              $yOffset =  -5;
+              $coordinate =  new \WeatherMap\Coordinate($baseCoordinate->x + $xOffset, $baseCoordinate->y + $yOffset);
+              
+              // Return
+              return $coordinate;
+          }
+          
           public static function getCoordinateForText($region) {
               // Get the base coordinate
               $baseCoordinate = self::getBaseCoordinate($region);

@@ -10,7 +10,7 @@
           protected static function getIconForPollination($pollination) {
               switch ($pollination) {
                   case \WeatherMap\Pollination::None:
-                  // TODO: Add image for no pollution                  
+                  // TODO: Add image for no pollution
                   case \WeatherMap\Pollination::Weak:
                       return imagecreatefrompng('media/icons/pollination/weak.png');
                   case \WeatherMap\Pollination::Moderate:
@@ -32,12 +32,12 @@
                   // TODO: remove null check when image for no pollution is added
                   if (iconv != null) {
                       $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
-                      $destinationCoordinates = parent::getCoordinateForIcon($currentWeatherData->region, $iconSize);                  
+                      $destinationCoordinates = parent::getCoordinateForIconCentered($currentWeatherData->region, $iconSize);                  
                       
-                      imagecopy($map, $icon,
-                                $destinationCoordinates->x, $destinationCoordinates->y,
-                                0, 0,
-                                $iconSize->width, $iconSize->height);
+                      imagecopymerge($map, $icon,
+                                     $destinationCoordinates->x, $destinationCoordinates->y,
+                                     0, 0,
+                                     $iconSize->width, $iconSize->height, 55);
                       imagedestroy($icon);
                   }
               }
