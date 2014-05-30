@@ -30,6 +30,21 @@
               return $icon;
           }
           
+          protected static function getHorizontalOffsetForText($string) {
+              if (strlen($string) == 1) {
+                  return -5;
+              }
+              else if (strlen($string) == 2) {
+                  return -12;
+              }
+              else if (strlen($string) == 3) {
+                  return -18;
+              }
+              else {
+                  return null;
+              }
+          }
+          
           // Public methods
           public function generateMap($weatherData) {
               // Get background image
@@ -58,12 +73,13 @@
                   $fontColor = parent::getNeutralFontColor();
                   $textAngle = 0;
                   
+                  $text = $currentWeatherData->wind->strength;
                   $textDestinationCoordinates = parent::getCoordinateForText($currentWeatherData->region);                 
-                  $textYOffset = 0;
+                  $textXOffset = self::getHorizontalOffsetForText($text);
                   
                   imagettftext($map, $fontSize, $textAngle,
-                               $textDestinationCoordinates->x, $textDestinationCoordinates->y + $textYOffset,
-                               $fontColor, $fontFile, $currentWeatherData->wind->strength);
+                               $textDestinationCoordinates->x + $textXOffset, $textDestinationCoordinates->y,
+                               $fontColor, $fontFile, $text);
               }
 
               // Enable transparency

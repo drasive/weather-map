@@ -14,7 +14,7 @@
                   $color = imagecolorallocate($image, 25, 25, 255);
               }
               else if ($temperature > 35) {
-                  $color = imagecolorallocate($image, 250, 70, 0);
+                  $color = imagecolorallocate($image, 250, 40, 0);
               }
               else {
                   $color = parent::getNeutralFontColor();
@@ -25,15 +25,15 @@
               return $color;
           }          
           
-          protected static function getNegativeHorizontalOffset($string) {
+          protected static function getHorizontalOffsetForText($string) {
               if (strlen($string) == 1) {
-                  return 15;
+                  return -15;
               }
               else if (strlen($string) == 2) {
-                  return 29;
+                  return -29;
               }
               else if (strlen($string) == 3) {
-                  return 37;
+                  return -37;
               }
               else {
                   return null;
@@ -55,10 +55,10 @@
                   
                   // Draw minimum temperature
                   $minimumTemperatureText = $currentWeatherData->temperature->minimum;                  
-                  $minimumTemperatureOffset = self::getNegativeHorizontalOffset($minimumTemperatureText);
+                  $minimumTemperatureOffset = self::getHorizontalOffsetForText($minimumTemperatureText);
                   $minimumTemperatureFontColor = self::getColorForTemperature($currentWeatherData->temperature->minimum);
                   imagettftext($map, $fontSize, $textAngle,
-                               $destinationCoordinates->x - $minimumTemperatureOffset, $destinationCoordinates->y,
+                               $destinationCoordinates->x + $minimumTemperatureOffset, $destinationCoordinates->y,
                                $minimumTemperatureFontColor, $fontFile, $minimumTemperatureText);
                   
                   // Draw split character
