@@ -134,11 +134,11 @@ else {
                             <?php echo generateMapImageElement('conditions_map.php', 'Shows the general weather conditions of a region.'); ?>
                         </li>
                         <li>
-                            <h2 class="image-title">Temperatures</h2>
+                            <h2 class="image-title">Temperatures (°C)</h2>
                             <?php echo generateMapImageElement('temperatures_map.php', 'Shows the minimum an maximum temparatures of a region.'); ?>
                         </li>
                         <li>
-                            <h2 class="image-title">Wind</h2>
+                            <h2 class="image-title">Wind (km/h)</h2>
                             <?php echo generateMapImageElement('wind_map.php', 'Shows the wind direction an speed of a region.'); ?>
                         </li>
                         <li>
