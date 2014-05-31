@@ -84,11 +84,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="media\icons\pollination\moderate.png" />
-    <Content Include="media\icons\pollination\Moderate.psd" />
     <Content Include="media\icons\pollination\strong.png" />
-    <Content Include="media\icons\pollination\Strong.psd" />
     <Content Include="media\icons\pollination\weak.png" />
-    <Content Include="media\icons\pollination\Weak.psd" />
     <Content Include="media\icons\Sun.psd" />
     <Content Include="media\icons\weather\cloudy.png" />
     <Content Include="media\icons\weather\Cloudy.psd" />
@@ -101,9 +98,10 @@
     <Content Include="media\icons\weather\Sunny.psd" />
     <Content Include="media\icons\weather\thunderstorm.png" />
     <Content Include="media\icons\weather\Thunderstorm.psd" />
-    <Content Include="media\icons\wind\arrow.psd" />
     <Content Include="media\icons\wind\arrow_0.png" />
+    <Content Include="media\icons\wind\arrow_0.psd" />
     <Content Include="media\icons\wind\arrow_45.png" />
+    <Content Include="media\icons\wind\arrow_45.psd" />
     <Content Include="media\images\argument_invalid.png" />
     <Content Include="media\images\switzerland_map.png" />
     <Content Include="media\images\Switzerland map.psd" />
