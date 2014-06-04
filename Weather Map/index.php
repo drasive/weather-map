@@ -4,8 +4,6 @@
 // TODO: Full qualified names/ requires (linux)
 // TODO: File operations (linux)
 
-// TODO: strong pollination -> darker
-
 // TODO: Improve load times of cached images (add caching to http request?)
 
 // TODO: Check if the webservice can be reached or show an error

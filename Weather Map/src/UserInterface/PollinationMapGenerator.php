@@ -10,8 +10,7 @@
           protected static function getIconForPollinationStrength($pollination) {
               switch ($pollination) {
                   case \WeatherMap\Pollination::None:
-                      // TODO: Add image for no pollution
-                      return null;
+                      return imagecreatefrompng('media/icons/pollination/none.png');
                   case \WeatherMap\Pollination::Weak:
                       return imagecreatefrompng('media/icons/pollination/weak.png');
                   case \WeatherMap\Pollination::Moderate:
@@ -30,23 +29,20 @@
               foreach ($weatherData as $currentWeatherData) {
                   $icon = self::getIconForPollinationStrength($currentWeatherData->pollination);
                   
-                  // TODO: remove null check when image for no pollution is added
-                  if ($icon != null) {
-                      $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
-                      $destinationCoordinates = parent::getCoordinateForIconCentered($currentWeatherData->region, $iconSize);                  
-                      
-                      // Set white to transparent
-                      $transparentColor = imagecolorallocate($icon, 255, 255, 255);
-                      imagecolortransparent($icon, $transparentColor);
-                      
-                      // Merge images
-                      imagecopymerge($map, $icon,
-                                     $destinationCoordinates->x, $destinationCoordinates->y,
-                                     0, 0,
-                                     $iconSize->width, $iconSize->height,
-                                     60);
-                      imagedestroy($icon);
-                  }
+                  $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
+                  $destinationCoordinates = parent::getCoordinateForIconCentered($currentWeatherData->region, $iconSize);                  
+                  
+                  // Set white to transparent
+                  $transparentColor = imagecolorallocate($icon, 255, 255, 255);
+                  imagecolortransparent($icon, $transparentColor);
+                  
+                  // Merge images
+                  imagecopymerge($map, $icon,
+                                 $destinationCoordinates->x, $destinationCoordinates->y,
+                                 0, 0,
+                                 $iconSize->width, $iconSize->height,
+                                 65);
+                  imagedestroy($icon);
               }
               
               // Enable transparency
