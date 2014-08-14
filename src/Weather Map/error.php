@@ -12,7 +12,7 @@
     <script src="http://code.jquery.com/jquery.js"></script>
 
     <!-- Bootstrap -->
-    <script src="scripts/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <link href="style/css/bootstrap.css" rel="stylesheet" media="screen" />
 
     <!-- Style -->
