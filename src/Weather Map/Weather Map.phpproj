@@ -19,6 +19,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="about.php" />
+    <Compile Include="not_found.php" />
     <Compile Include="php\BusinessLogic\PathManager.php" />
     <Compile Include="php\BusinessLogic\ParameterValidator.php" />
     <Compile Include="php\BusinessLogic\PollinationMapGenerator.php" />
@@ -71,6 +72,7 @@
     <Folder Include="media\icons\weather\" />
     <Folder Include="media\images\" />
     <Folder Include="js\" />
+    <Folder Include="errors\" />
     <Folder Include="php\DataAccess\" />
     <Folder Include="php\BusinessLogic\" />
     <Folder Include="php\UserInterface\" />
