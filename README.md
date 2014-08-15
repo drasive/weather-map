@@ -5,7 +5,7 @@ This was a school project for module #307 at the [GIB Muttenz](http://www.gibm.c
 
 Attention:
 - The default configured webservice provided by the GIBM returns different, __random weather data__ every time it is called. Other data sources can be used, but the parsing has to be adapted to the new data format.
-- The user interface and the documentation are in __German__, even though the code is in English.
+- The documentation and small parts of the user interface are in __German__, even though the code is in English.
 
 ## Features
 - Generates maps for the weather conditions, temperatures, wind and pollination in every region
