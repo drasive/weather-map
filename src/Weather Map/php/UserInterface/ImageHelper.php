@@ -1,6 +1,6 @@
 <?php namespace WeatherMap\UserInterface;
       
-      require_once('src/Size.php');
+      require_once('php/Size.php');
 
       class ImageHelper {
           

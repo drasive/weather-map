@@ -9,9 +9,9 @@
       // Move this class to media/images/generated/ if the problem is fixes. Keep it here otherwise.
       //
       // Damn, that probably the longest meanigful comment I have ever written.
-      require_once('src/UserInterface/WeatherMapGenerator.php');
-      require_once('src/UserInterface/ImageHelper.php');
-      require_once('src/Size.php');
+      require_once('php/UserInterface/WeatherMapGenerator.php');
+      require_once('php/UserInterface/ImageHelper.php');
+      require_once('php/Size.php');
 
       class ConditionsMapGenerator extends WeatherMapGenerator {
 

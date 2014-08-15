@@ -9,11 +9,11 @@
 // TODO: Check if the webservice can be reached or show an error
 
 // Includes
-require_once('src/BusinessLogic/DateTimeHelper.php');
-require_once('src/BusinessLogic/ParameterValidator.php');
-require_once('src/BusinessLogic/ConfigurationReader.php');
-require_once('src/BusinessLogic/WeatherMapGenerator.php');
-require_once('src/HttpParameterHelper.php');
+require_once('php/BusinessLogic/DateTimeHelper.php');
+require_once('php/BusinessLogic/ParameterValidator.php');
+require_once('php/BusinessLogic/ConfigurationReader.php');
+require_once('php/BusinessLogic/WeatherMapGenerator.php');
+require_once('php/HttpParameterHelper.php');
 
 // Check caches
 \WeatherMap\BusinessLogic\WeatherMapGenerator::checkWeatherDataCache();

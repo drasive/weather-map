@@ -1,8 +1,8 @@
 <?php namespace WeatherMap\UserInterface;
 
-      require_once('src/UserInterface/WeatherMapGenerator.php');
-      require_once('src/UserInterface/ImageHelper.php');
-      require_once('src/Size.php');
+      require_once('php/UserInterface/WeatherMapGenerator.php');
+      require_once('php/UserInterface/ImageHelper.php');
+      require_once('php/Size.php');
 
       class PollinationMapGenerator extends WeatherMapGenerator {
 

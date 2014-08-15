@@ -1,6 +1,6 @@
 <?php namespace WeatherMap\DataAccess;
 
-      require_once('src/DataAccess/WeatherDataReader.php');
+      require_once('php/DataAccess/WeatherDataReader.php');
       
       class FileWeatherDataReader extends WeatherDataReader {
           

@@ -1,7 +1,7 @@
 <?php namespace WeatherMap\UserInterface;
       
-      require_once('src/HttpParameterHelper.php');
-      require_once('src/UserInterface/ImageHelper.php');
+      require_once('php/HttpParameterHelper.php');
+      require_once('php/UserInterface/ImageHelper.php');
 
       abstract class WeatherMapGenerator {
           

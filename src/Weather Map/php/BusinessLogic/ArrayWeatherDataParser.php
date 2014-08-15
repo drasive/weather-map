@@ -1,14 +1,14 @@
 <?php namespace WeatherMap\BusinessLogic;
 
-      require_once('src/BusinessLogic/WeatherDataParser.php');
+      require_once('php/BusinessLogic/WeatherDataParser.php');
       
-      require_once('src/WeatherData.php');
-      require_once('src/Region.php');
-      require_once('src/WeatherCondition.php');
-      require_once('src/Temperature.php');
-      require_once('src/Wind.php');
-      require_once('src/CardinalDirection.php');
-      require_once('src/Pollination.php');
+      require_once('php/WeatherData.php');
+      require_once('php/Region.php');
+      require_once('php/WeatherCondition.php');
+      require_once('php/Temperature.php');
+      require_once('php/Wind.php');
+      require_once('php/CardinalDirection.php');
+      require_once('php/Pollination.php');
       
       class ArrayWeatherDataParser extends WeatherDataParser {
           

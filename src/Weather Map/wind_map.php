@@ -4,8 +4,8 @@
 header("Content-Type: image/png");
 
 // Includes
-require_once('src/BusinessLogic/WindMapGenerator.php');
-require_once('src/BusinessLogic/ParameterValidator.php');
+require_once('php/BusinessLogic/WindMapGenerator.php');
+require_once('php/BusinessLogic/ParameterValidator.php');
 
 // Get the HTTP parameters
 $dateHttpParameter = $_GET['date'];

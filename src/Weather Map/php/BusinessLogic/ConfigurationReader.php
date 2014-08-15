@@ -1,6 +1,6 @@
 <?php namespace WeatherMap\BusinessLogic;
 
-      require_once('src/DataAccess/ConfigurationReader.php');
+      require_once('php/DataAccess/ConfigurationReader.php');
       
       class ConfigurationReader {
           

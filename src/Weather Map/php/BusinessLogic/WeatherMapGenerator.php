@@ -1,12 +1,12 @@
 <?php namespace WeatherMap\BusinessLogic;
       
-      require_once('src/Coordinate.php');      
-      require_once('src/DataAccess/WebsiteWeatherDataReader.php');
-      require_once('src/DataAccess/FileWeatherDataReader.php');
-      require_once('src/DataAccess/IOManager.php');
-      require_once('src/BusinessLogic/ConfigurationReader.php');
-      require_once('src/BusinessLogic/ArrayWeatherDataParser.php');
-      require_once('src/BusinessLogic/PathManager.php');      
+      require_once('php/Coordinate.php');      
+      require_once('php/DataAccess/WebsiteWeatherDataReader.php');
+      require_once('php/DataAccess/FileWeatherDataReader.php');
+      require_once('php/DataAccess/IOManager.php');
+      require_once('php/BusinessLogic/ConfigurationReader.php');
+      require_once('php/BusinessLogic/ArrayWeatherDataParser.php');
+      require_once('php/BusinessLogic/PathManager.php');      
       
       abstract class WeatherMapGenerator {
           

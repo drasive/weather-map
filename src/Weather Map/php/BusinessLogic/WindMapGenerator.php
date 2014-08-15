@@ -1,10 +1,10 @@
 <?php namespace WeatherMap\BusinessLogic;
 
-      require_once('src/BusinessLogic/WeatherMapGenerator.php');
+      require_once('php/BusinessLogic/WeatherMapGenerator.php');
       
-      require_once('src/UserInterface/WindMapGenerator.php');
-      require_once('src/UserInterface/ImageHelper.php');
-      require_once('src/WeatherMapType.php');
+      require_once('php/UserInterface/WindMapGenerator.php');
+      require_once('php/UserInterface/ImageHelper.php');
+      require_once('php/WeatherMapType.php');
 
       class WindMapGenerator extends WeatherMapGenerator {
 

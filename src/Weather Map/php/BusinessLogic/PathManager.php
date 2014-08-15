@@ -1,6 +1,6 @@
 <?php namespace WeatherMap\BusinessLogic;
 
-      require_once('src/DataAccess/IOManager.php');
+      require_once('php/DataAccess/IOManager.php');
       
       class PathManager {
           
