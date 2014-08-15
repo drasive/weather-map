@@ -16,7 +16,7 @@
     <link href="style/css/bootstrap.css" rel="stylesheet" media="screen" />
 
     <!-- Style -->
-    <link href="style/css/style.css" rel="stylesheet" />
+    <link href="style/css/custom.css" rel="stylesheet" />
 </head>
 <body>
     <?php

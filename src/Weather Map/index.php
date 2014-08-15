@@ -73,7 +73,7 @@ else {
     <link href="style/css/bootstrap.css" rel="stylesheet" media="screen" />
 
     <!-- Style -->
-    <link href="style/css/style.css" rel="stylesheet" />
+    <link href="style/css/custom.css" rel="stylesheet" />
     <script src="js/style.js" type="text/javascript"></script>
 
     <!-- Flex Slider -->
