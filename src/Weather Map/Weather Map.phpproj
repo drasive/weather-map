@@ -102,6 +102,8 @@
     <Content Include="media\images\argument_invalid.png" />
     <Content Include="media\images\switzerland_map.png" />
     <Content Include="media\images\Switzerland map.psd" />
+    <Content Include="style\css\style.css.map" />
+    <Content Include="style\css\style.min.css" />
     <Content Include="style\fonts\arial.ttf" />
     <Content Include="unavailable.html" />
     <Content Include="includes\footer.inc.html" />
@@ -125,7 +127,6 @@
     <Content Include="style\css\bootstrap.css" />
     <Content Include="style\css\bootstrap.css.map" />
     <Content Include="style\css\bootstrap.min.css" />
-    <Content Include="style\css\compile less files.bat" />
     <Content Include="style\css\flexslider.css" />
     <Content Include="style\css\style.css" />
     <Content Include="style\css\style.less" />
