@@ -11,12 +11,12 @@ require_once('php/BusinessLogic/ParameterValidator.php');
 $dateHttpParameter = $_GET['date'];
 $date = null;
 
-if (isset($dateHttpParameter) && \WeatherMap\HttpParameterHelper::hasValue($dateHttpParameter)) {
+if (isset($dateHttpParameter) && \DimitriVranken\weather_map\HttpParameterHelper::hasValue($dateHttpParameter)) {
     $date = strtotime($dateHttpParameter);
 }
 
 // Validate the HTTP parameters
-if ($date == null || $date == false || date == '' || !\WeatherMap\BusinessLogic\ParameterValidator::isRequestedMapDateValid($date)) { // Date couldn't be obtained or is invalid
+if ($date == null || $date == false || date == '' || !\DimitriVranken\weather_map\BusinessLogic\ParameterValidator::isRequestedMapDateValid($date)) { // Date couldn't be obtained or is invalid
     $argumentInvalid = imagecreatefrompng('media/images/argument_invalid.png');
     imagepng($argumentInvalid);
     imagedestroy($argumentInvalid);
@@ -25,7 +25,7 @@ if ($date == null || $date == false || date == '' || !\WeatherMap\BusinessLogic\
 }
 
 // Generate the map
-$mapGenerator = new \WeatherMap\BusinessLogic\ConditionsMapGenerator();
+$mapGenerator = new \DimitriVranken\weather_map\BusinessLogic\ConditionsMapGenerator();
 $map = $mapGenerator->generateMap($date);
 
 // Return the map

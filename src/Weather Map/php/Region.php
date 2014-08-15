@@ -1,4 +1,4 @@
-<?php namespace WeatherMap;
+<?php namespace DimitriVranken\weather_map;
 
       abstract class Region {
           const Geneva = 0;

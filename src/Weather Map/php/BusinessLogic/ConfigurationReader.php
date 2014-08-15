@@ -1,4 +1,4 @@
-<?php namespace WeatherMap\BusinessLogic;
+<?php namespace DimitriVranken\weather_map\BusinessLogic;
 
       require_once('php/DataAccess/ConfigurationReader.php');
       
@@ -20,25 +20,25 @@
           
           // Release section
           public static function getDebugMode() { 
-              return \WeatherMap\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectioRelease][self::$m_debugMode];
+              return \DimitriVranken\weather_map\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectioRelease][self::$m_debugMode];
           }
           
           public static function getReleaseDate() { 
-              return \WeatherMap\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectioRelease][self::$m_releaseDate];
+              return \DimitriVranken\weather_map\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectioRelease][self::$m_releaseDate];
           }
           
           // Webservice section
           public static function getWebserviceURL() { 
-              return \WeatherMap\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectionWebservice][self::$m_webserviceURL];
+              return \DimitriVranken\weather_map\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectionWebservice][self::$m_webserviceURL];
           }
           
           public static function getWebserviceUseCache() { 
-              return \WeatherMap\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectionWebservice][self::$m_webserviceUseCache];
+              return \DimitriVranken\weather_map\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectionWebservice][self::$m_webserviceUseCache];
           }
           
           // Webservice section
           public static function getMapsCache() { 
-              return \WeatherMap\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectionMaps][self::$m_mapsUseCache];
+              return \DimitriVranken\weather_map\DataAccess\ConfigurationReader::readIniFile(self::$m_configurationFile, true)[self::$m_sectionMaps][self::$m_mapsUseCache];
           }
           
       }

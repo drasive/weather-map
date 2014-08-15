@@ -1,4 +1,4 @@
-<?php namespace WeatherMap\BusinessLogic;
+<?php namespace DimitriVranken\weather_map\BusinessLogic;
       
       class ParameterValidator {
           

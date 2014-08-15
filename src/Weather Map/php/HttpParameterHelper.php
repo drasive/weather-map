@@ -1,4 +1,4 @@
-<?php namespace WeatherMap;
+<?php namespace DimitriVranken\weather_map;
       
       /**
        * Stellt Methoden bereit, um HTTP Parameter zu validieren.

@@ -1,4 +1,4 @@
-<?php namespace WeatherMap\UserInterface;
+<?php namespace DimitriVranken\weather_map\UserInterface;
 
       // TODO:
       // If this file is located deeper than the root directory itself, "../[../]" has to be prepended to these require-paths (which makes sense).
@@ -18,15 +18,15 @@
           // Protected methods
           protected static function getIconForWeatherCondition($weatherCondition) {
               switch ($weatherCondition) {
-                  case \WeatherMap\WeatherCondition::Sunny:
+                  case \DimitriVranken\weather_map\WeatherCondition::Sunny:
                       return imagecreatefrompng('media/icons/weather/sunny.png');
-                  case \WeatherMap\WeatherCondition::Cloudy:
+                  case \DimitriVranken\weather_map\WeatherCondition::Cloudy:
                       return imagecreatefrompng('media/icons/weather/cloudy.png');
-                  case \WeatherMap\WeatherCondition::Rain:
+                  case \DimitriVranken\weather_map\WeatherCondition::Rain:
                       return imagecreatefrompng('media/icons/weather/rain.png');
-                  case \WeatherMap\WeatherCondition::Thunderstorm:
+                  case \DimitriVranken\weather_map\WeatherCondition::Thunderstorm:
                       return imagecreatefrompng('media/icons/weather/thunderstorm.png');
-                  case \WeatherMap\WeatherCondition::Snow:
+                  case \DimitriVranken\weather_map\WeatherCondition::Snow:
                       return imagecreatefrompng('media/icons/weather/snow.png');
               }
           }
@@ -39,7 +39,7 @@
              // Add icons
              foreach ($weatherData as $currentWeatherData) {
                  $icon = self::getIconForWeatherCondition($currentWeatherData->weatherCondition);
-                 $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
+                 $iconSize = new \DimitriVranken\weather_map\Size(imagesx($icon), imagesy($icon));
                  $destinationCoordinates = parent::getCoordinateForIcon($currentWeatherData->region, $iconSize);
                  
                  imagecopy($map, $icon,
@@ -50,7 +50,7 @@
              }
 
              // Enable transparency
-             $map = \WeatherMap\UserInterface\ImageHelper::enableTransparency($map);
+             $map = \DimitriVranken\weather_map\UserInterface\ImageHelper::enableTransparency($map);
              
              // Return
              return $map;

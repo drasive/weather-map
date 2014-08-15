@@ -1,4 +1,4 @@
-<?php namespace WeatherMap\UserInterface;
+<?php namespace DimitriVranken\weather_map\UserInterface;
       
       require_once('php/Size.php');
 
@@ -6,7 +6,7 @@
           
           // Public methods
           public static function enableTransparency($image) {
-              $imageSize = new \WeatherMap\Size(imagesx($image), imagesy($image));
+              $imageSize = new \DimitriVranken\weather_map\Size(imagesx($image), imagesy($image));
               $imageWithTransparencyEnabled = imagecreatetruecolor($imageSize->width, $imageSize->height);   
               
               imagealphablending($imageWithTransparencyEnabled, false);

@@ -1,4 +1,4 @@
-<?php namespace WeatherMap;
+<?php namespace DimitriVranken\weather_map;
       
       abstract class WeatherCondition {
           const Sunny = 0;

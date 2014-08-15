@@ -1,4 +1,4 @@
-<?php namespace WeatherMap\BusinessLogic;
+<?php namespace DimitriVranken\weather_map\BusinessLogic;
 
       require_once('php/BusinessLogic/WeatherDataParser.php');
       
@@ -21,19 +21,19 @@
           protected static function parseRegion($regionAsInteger) {
               switch ($regionAsInteger) {
                   case 1:
-                      return \WeatherMap\Region::Geneva;
+                      return \DimitriVranken\weather_map\Region::Geneva;
                   case 2:
-                      return \WeatherMap\Region::Valais;
+                      return \DimitriVranken\weather_map\Region::Valais;
                   case 3:
-                      return \WeatherMap\Region::Ticino;
+                      return \DimitriVranken\weather_map\Region::Ticino;
                   case 4:
-                      return \WeatherMap\Region::Grisons;                  
+                      return \DimitriVranken\weather_map\Region::Grisons;                  
                   case 5:
-                      return \WeatherMap\Region::Zurich;
+                      return \DimitriVranken\weather_map\Region::Zurich;
                   case 6:
-                      return \WeatherMap\Region::Berne;
+                      return \DimitriVranken\weather_map\Region::Berne;
                   case 7:
-                      return \WeatherMap\Region::Basle;   
+                      return \DimitriVranken\weather_map\Region::Basle;   
               }
           }
           
@@ -41,15 +41,15 @@
           protected static function parseWeatherCondition($weatherConditionAsInteger) {
               switch ($weatherConditionAsInteger) {
                   case 1:
-                      return \WeatherMap\WeatherCondition::Sunny;
+                      return \DimitriVranken\weather_map\WeatherCondition::Sunny;
                   case 2:
-                      return \WeatherMap\WeatherCondition::Cloudy;
+                      return \DimitriVranken\weather_map\WeatherCondition::Cloudy;
                   case 3:
-                      return \WeatherMap\WeatherCondition::Rain;
+                      return \DimitriVranken\weather_map\WeatherCondition::Rain;
                   case 4:
-                      return \WeatherMap\WeatherCondition::Thunderstorm;                  
+                      return \DimitriVranken\weather_map\WeatherCondition::Thunderstorm;                  
                   case 5:
-                      return \WeatherMap\WeatherCondition::Snow; 
+                      return \DimitriVranken\weather_map\WeatherCondition::Snow; 
               }
           }
           
@@ -60,7 +60,7 @@
               $minimum = $temperatureAsStringValues[0];
               $maximum = $temperatureAsStringValues[1];
               
-              return new \WeatherMap\Temperature($minimum, $maximum);
+              return new \DimitriVranken\weather_map\Temperature($minimum, $maximum);
           }          
           
           
@@ -72,29 +72,29 @@
               
               $strength = $windAsStringValues[1];
               
-              return new \WeatherMap\Wind($direction, $strength);
+              return new \DimitriVranken\weather_map\Wind($direction, $strength);
           }
           
           protected static function parseWindDirection($directionAsString) {
               switch (strtoupper($directionAsString)) {
                   case 'NN':
-                      return \WeatherMap\CardinalDirection::None;
+                      return \DimitriVranken\weather_map\CardinalDirection::None;
                   case 'N':
-                      return \WeatherMap\CardinalDirection::North;
+                      return \DimitriVranken\weather_map\CardinalDirection::North;
                   case 'NO':
-                      return \WeatherMap\CardinalDirection::NorthEast;
+                      return \DimitriVranken\weather_map\CardinalDirection::NorthEast;
                   case 'O':
-                      return \WeatherMap\CardinalDirection::East;
+                      return \DimitriVranken\weather_map\CardinalDirection::East;
                   case 'SO':
-                      return \WeatherMap\CardinalDirection::SouthEast;
+                      return \DimitriVranken\weather_map\CardinalDirection::SouthEast;
                   case 'S':
-                      return \WeatherMap\CardinalDirection::South;
+                      return \DimitriVranken\weather_map\CardinalDirection::South;
                   case 'SW':
-                      return \WeatherMap\CardinalDirection::SouthWest;
+                      return \DimitriVranken\weather_map\CardinalDirection::SouthWest;
                   case 'W':
-                      return \WeatherMap\CardinalDirection::West;
+                      return \DimitriVranken\weather_map\CardinalDirection::West;
                   case 'NW':
-                      return \WeatherMap\CardinalDirection::NorthEast;
+                      return \DimitriVranken\weather_map\CardinalDirection::NorthEast;
               }
           }
           
@@ -102,13 +102,13 @@
           protected static function parsePollination($pollinationAsInteger) {
               switch ($pollinationAsInteger) {
                   case 0:
-                      return \WeatherMap\Pollination::None;
+                      return \DimitriVranken\weather_map\Pollination::None;
                   case 1:
-                      return \WeatherMap\Pollination::Weak;
+                      return \DimitriVranken\weather_map\Pollination::Weak;
                   case 2:
-                      return \WeatherMap\Pollination::Moderate;
+                      return \DimitriVranken\weather_map\Pollination::Moderate;
                   case 3:
-                      return \WeatherMap\Pollination::Strong;
+                      return \DimitriVranken\weather_map\Pollination::Strong;
               }
           }
           
@@ -124,7 +124,7 @@
                   $wind = self::parseWind($row[4]);
                   $pollination = self::parsePollination($row[5]);
                   
-                  $currentWeatherData = new \WeatherMap\WeatherData($date, $region, $weatherCondition, $temperature, $wind, $pollination);
+                  $currentWeatherData = new \DimitriVranken\weather_map\WeatherData($date, $region, $weatherCondition, $temperature, $wind, $pollination);
                   array_push($weatherData, $currentWeatherData);
               }
               

@@ -1,4 +1,4 @@
-<?php namespace WeatherMap\UserInterface;
+<?php namespace DimitriVranken\weather_map\UserInterface;
 
       require_once('php/UserInterface/WeatherMapGenerator.php');
       require_once('php/UserInterface/ImageHelper.php');
@@ -78,7 +78,7 @@
               }
 
               // Enable transparency
-              $map = \WeatherMap\UserInterface\ImageHelper::enableTransparency($map);              
+              $map = \DimitriVranken\weather_map\UserInterface\ImageHelper::enableTransparency($map);              
               
               // Returns
               return $map;

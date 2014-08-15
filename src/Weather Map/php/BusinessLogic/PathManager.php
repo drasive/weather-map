@@ -1,4 +1,4 @@
-<?php namespace WeatherMap\BusinessLogic;
+<?php namespace DimitriVranken\weather_map\BusinessLogic;
 
       require_once('php/DataAccess/IOManager.php');
       
@@ -8,7 +8,7 @@
           protected static function getDataFolder() {
               $dataFolder = './data/';
               
-              \WeatherMap\DataAccess\IOManager::checkFolder($dataFolder);
+              \DimitriVranken\weather_map\DataAccess\IOManager::checkFolder($dataFolder);
               
               return $dataFolder;
           }
@@ -16,7 +16,7 @@
           protected static function getCacheFolder() {              
               $cacheFolder = self::getDataFolder() . 'cache/';
               
-              \WeatherMap\DataAccess\IOManager::checkFolder($cacheFolder);
+              \DimitriVranken\weather_map\DataAccess\IOManager::checkFolder($cacheFolder);
               
               return $cacheFolder;
           }
@@ -25,7 +25,7 @@
           protected static function getCachedWeatherDataFolder() {
               $cachedWeatherDataFolder = self::getCacheFolder() . 'weather_data/';
               
-              \WeatherMap\DataAccess\IOManager::checkFolder($cachedWeatherDataFolder);
+              \DimitriVranken\weather_map\DataAccess\IOManager::checkFolder($cachedWeatherDataFolder);
               
               return $cachedWeatherDataFolder;
           }
@@ -33,13 +33,13 @@
           
           protected static function getCachedWeatherMapsFolder($date) {
               $cachedWeatherMapsFolder = self::getCacheFolder() . 'weather_maps/';
-              \WeatherMap\DataAccess\IOManager::checkFolder($cachedWeatherMapsFolder);
+              \DimitriVranken\weather_map\DataAccess\IOManager::checkFolder($cachedWeatherMapsFolder);
               
               $cachedWeatherMapsDataFolder = $cachedWeatherMapsFolder . date('Y-m-d', time()) . '/';
-              \WeatherMap\DataAccess\IOManager::checkFolder($cachedWeatherMapsDataFolder);
+              \DimitriVranken\weather_map\DataAccess\IOManager::checkFolder($cachedWeatherMapsDataFolder);
               
               $cachedWeatherMapsDateFolder = $cachedWeatherMapsDataFolder . date('Y-m-d', $date) . '/';
-              \WeatherMap\DataAccess\IOManager::checkFolder($cachedWeatherMapsDateFolder);
+              \DimitriVranken\weather_map\DataAccess\IOManager::checkFolder($cachedWeatherMapsDateFolder);
               
               return $cachedWeatherMapsDateFolder;
           }
@@ -55,16 +55,16 @@
               $fileName = null;
               
               switch ($weatherMapType) {
-                  case \WeatherMap\WeatherMapType::Conditions:
+                  case \DimitriVranken\weather_map\WeatherMapType::Conditions:
                       $fileName = 'conditions';
                       break;
-                  case \WeatherMap\WeatherMapType::Temperatures:
+                  case \DimitriVranken\weather_map\WeatherMapType::Temperatures:
                       $fileName = 'temperatures';
                       break;
-                  case \WeatherMap\WeatherMapType::Wind:
+                  case \DimitriVranken\weather_map\WeatherMapType::Wind:
                       $fileName = 'wind';
                       break;
-                  case \WeatherMap\WeatherMapType::Pollination:
+                  case \DimitriVranken\weather_map\WeatherMapType::Pollination:
                       $fileName = 'pollination';
                       break;
               }

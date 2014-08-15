@@ -1,4 +1,4 @@
-<?php namespace WeatherMap\BusinessLogic;
+<?php namespace DimitriVranken\weather_map\BusinessLogic;
       
       require_once('php/Coordinate.php');      
       require_once('php/DataAccess/WebsiteWeatherDataReader.php');
@@ -22,10 +22,10 @@
           
           // Private methods
           private static function getUnparsedWeatherData() {
-              $filePath = \WeatherMap\BusinessLogic\PathManager::getCachedWeatherDataFile();
-              $dataUnparsed = \WeatherMap\DataAccess\IOManager::readFile($filePath);
+              $filePath = \DimitriVranken\weather_map\BusinessLogic\PathManager::getCachedWeatherDataFile();
+              $dataUnparsed = \DimitriVranken\weather_map\DataAccess\IOManager::readFile($filePath);
               
-              $fileDataReader = new \WeatherMap\DataAccess\FileWeatherDataReader();
+              $fileDataReader = new \DimitriVranken\weather_map\DataAccess\FileWeatherDataReader();
               $data = $fileDataReader->readData($dataUnparsed);
               
               // Return
@@ -33,7 +33,7 @@
           }
           
           private static function parseWeatherData($dataUnparsed) {
-              $parser = new \WeatherMap\BusinessLogic\ArrayWeatherDataParser();
+              $parser = new \DimitriVranken\weather_map\BusinessLogic\ArrayWeatherDataParser();
               return $parser->parseWeatherData($dataUnparsed);
           }
           
@@ -62,14 +62,14 @@
           public abstract function generateMap($date);
           
           public static function checkWeatherDataCache() {              
-              $filePath = \WeatherMap\BusinessLogic\PathManager::getCachedWeatherDataFile();
-              if (!\WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceUseCache() || !file_exists($filePath)) {                                    
-                  $websiteDataReader = new \WeatherMap\DataAccess\WebsiteWeatherDataReader();
-                  $dataSource = \WeatherMap\BusinessLogic\ConfigurationReader::getWebserviceURL();                  
+              $filePath = \DimitriVranken\weather_map\BusinessLogic\PathManager::getCachedWeatherDataFile();
+              if (!\DimitriVranken\weather_map\BusinessLogic\ConfigurationReader::getWebserviceUseCache() || !file_exists($filePath)) {                                    
+                  $websiteDataReader = new \DimitriVranken\weather_map\DataAccess\WebsiteWeatherDataReader();
+                  $dataSource = \DimitriVranken\weather_map\BusinessLogic\ConfigurationReader::getWebserviceURL();                  
                   $dataToCache = $websiteDataReader->readData($dataSource);
                   
                   $dataToWrite = implode($dataToCache);                  
-                  \WeatherMap\DataAccess\IOManager::writeFile($filePath, $dataToWrite);
+                  \DimitriVranken\weather_map\DataAccess\IOManager::writeFile($filePath, $dataToWrite);
               }
           }
           

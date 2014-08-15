@@ -1,4 +1,4 @@
-<?php namespace WeatherMap;
+<?php namespace DimitriVranken\weather_map;
       
       abstract class CardinalDirection {
           // Constants
@@ -15,28 +15,28 @@
           // Public methods
           public static function getAngle($cardinalDirection) {
               switch ($cardinalDirection) {
-                  case \WeatherMap\CardinalDirection::North:
+                  case \DimitriVranken\weather_map\CardinalDirection::North:
                       $angle = 0;
                       break;
-                  case \WeatherMap\CardinalDirection::NorthEast:
+                  case \DimitriVranken\weather_map\CardinalDirection::NorthEast:
                       $angle = 45;
                       break;
-                  case \WeatherMap\CardinalDirection::East:
+                  case \DimitriVranken\weather_map\CardinalDirection::East:
                       $angle = 90;
                       break;
-                  case \WeatherMap\CardinalDirection::SouthEast:
+                  case \DimitriVranken\weather_map\CardinalDirection::SouthEast:
                       $angle = 135;
                       break;
-                  case \WeatherMap\CardinalDirection::South:
+                  case \DimitriVranken\weather_map\CardinalDirection::South:
                       $angle = 180;
                       break;
-                  case \WeatherMap\CardinalDirection::SouthWest:
+                  case \DimitriVranken\weather_map\CardinalDirection::SouthWest:
                       $angle = 225;
                       break;
-                  case \WeatherMap\CardinalDirection::West:
+                  case \DimitriVranken\weather_map\CardinalDirection::West:
                       $angle = 270;
                       break;
-                  case \WeatherMap\CardinalDirection::NorthWest:
+                  case \DimitriVranken\weather_map\CardinalDirection::NorthWest:
                       $angle = 315;
                       break;
               }

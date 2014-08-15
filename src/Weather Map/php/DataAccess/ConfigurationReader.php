@@ -1,4 +1,4 @@
-<?php namespace WeatherMap\DataAccess;
+<?php namespace DimitriVranken\weather_map\DataAccess;
 
 class ConfigurationReader {
     

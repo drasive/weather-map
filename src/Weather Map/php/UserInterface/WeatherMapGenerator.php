@@ -1,4 +1,4 @@
-<?php namespace WeatherMap\UserInterface;
+<?php namespace DimitriVranken\weather_map\UserInterface;
       
       require_once('php/HttpParameterHelper.php');
       require_once('php/UserInterface/ImageHelper.php');
@@ -18,20 +18,20 @@
           // Protected methods
           protected static function getBaseCoordinate($region) {
               switch ($region) {
-                  case \WeatherMap\Region::Geneva:
-                      return new \WeatherMap\Coordinate(70, 645);
-                  case \WeatherMap\Region::Valais:
-                      return new \WeatherMap\Coordinate(429, 625);
-                  case \WeatherMap\Region::Ticino:
-                      return new \WeatherMap\Coordinate(892, 638);
-                  case \WeatherMap\Region::Grisons:
-                      return new \WeatherMap\Coordinate(1090, 480);
-                  case \WeatherMap\Region::Zurich:
-                      return new \WeatherMap\Coordinate(767, 138);
-                  case \WeatherMap\Region::Berne:
-                      return new \WeatherMap\Coordinate(452, 330);
-                  case \WeatherMap\Region::Basle:                      
-                      return new \WeatherMap\Coordinate(495, 70);
+                  case \DimitriVranken\weather_map\Region::Geneva:
+                      return new \DimitriVranken\weather_map\Coordinate(70, 645);
+                  case \DimitriVranken\weather_map\Region::Valais:
+                      return new \DimitriVranken\weather_map\Coordinate(429, 625);
+                  case \DimitriVranken\weather_map\Region::Ticino:
+                      return new \DimitriVranken\weather_map\Coordinate(892, 638);
+                  case \DimitriVranken\weather_map\Region::Grisons:
+                      return new \DimitriVranken\weather_map\Coordinate(1090, 480);
+                  case \DimitriVranken\weather_map\Region::Zurich:
+                      return new \DimitriVranken\weather_map\Coordinate(767, 138);
+                  case \DimitriVranken\weather_map\Region::Berne:
+                      return new \DimitriVranken\weather_map\Coordinate(452, 330);
+                  case \DimitriVranken\weather_map\Region::Basle:                      
+                      return new \DimitriVranken\weather_map\Coordinate(495, 70);
               }
           }
           
@@ -51,7 +51,7 @@
               // Center the icon
               $xOffset =  - ($iconSize->width / 2);
               $yOffset =  - ($iconSize->height / 2);
-              $coordinate =  new \WeatherMap\Coordinate($baseCoordinate->x + $xOffset, $baseCoordinate->y + $yOffset);
+              $coordinate =  new \DimitriVranken\weather_map\Coordinate($baseCoordinate->x + $xOffset, $baseCoordinate->y + $yOffset);
               
               // Return
               return $coordinate;
@@ -64,7 +64,7 @@
               // Center the icon
               $xOffset =  - ($iconSize->width / 2);
               $yOffset =  -5;
-              $coordinate =  new \WeatherMap\Coordinate($baseCoordinate->x + $xOffset, $baseCoordinate->y + $yOffset);
+              $coordinate =  new \DimitriVranken\weather_map\Coordinate($baseCoordinate->x + $xOffset, $baseCoordinate->y + $yOffset);
               
               // Return
               return $coordinate;
@@ -76,7 +76,7 @@
               
               // Center the text
               $yOffset =  42;
-              $coordinate =  new \WeatherMap\Coordinate($baseCoordinate->x, $baseCoordinate->y + $yOffset);
+              $coordinate =  new \DimitriVranken\weather_map\Coordinate($baseCoordinate->x, $baseCoordinate->y + $yOffset);
               
               // Return
               return $coordinate;

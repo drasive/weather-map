@@ -1,4 +1,4 @@
-<?php namespace WeatherMap\UserInterface;
+<?php namespace DimitriVranken\weather_map\UserInterface;
 
       require_once('php/UserInterface/WeatherMapGenerator.php');
       require_once('php/UserInterface/ImageHelper.php');
@@ -9,7 +9,7 @@
 
           // Protected methods
           protected static function getIconForWindDirection($windDirection) {
-              $angle = \WeatherMap\CardinalDirection::getAngle($windDirection);
+              $angle = \DimitriVranken\weather_map\CardinalDirection::getAngle($windDirection);
               
               if ($angle % 90 == 0) { // Is a quarter turn
                   // Get icon
@@ -53,9 +53,9 @@
               // Add icons and text
               foreach ($weatherData as $currentWeatherData) {
                   // Draw icon
-                  if (!$currentWeatherData->wind->direction == \WeatherMap\CardinalDirection::None) {
+                  if (!$currentWeatherData->wind->direction == \DimitriVranken\weather_map\CardinalDirection::None) {
                       $icon = self::getIconForWindDirection($currentWeatherData->wind->direction);
-                      $iconSize = new \WeatherMap\Size(imagesx($icon), imagesy($icon));
+                      $iconSize = new \DimitriVranken\weather_map\Size(imagesx($icon), imagesy($icon));
                       
                       $iconDestinationCoordinates = parent::getCoordinateForIcon($currentWeatherData->region, $iconSize);
                       $iconYOffset = -18;
@@ -83,7 +83,7 @@
               }
 
               // Enable transparency
-              $map = \WeatherMap\UserInterface\ImageHelper::enableTransparency($map);
+              $map = \DimitriVranken\weather_map\UserInterface\ImageHelper::enableTransparency($map);
               
               // Return
               return $map;

@@ -1,4 +1,4 @@
-<?php namespace WeatherMap\BusinessLogic;
+<?php namespace DimitriVranken\weather_map\BusinessLogic;
 
       require_once('php/BusinessLogic/WeatherMapGenerator.php');
       
@@ -10,13 +10,13 @@
 
           // Public methods
           public function generateMap($date) {
-              $filePath = \WeatherMap\BusinessLogic\PathManager::getCachedWeatherMapFile($date, \WeatherMap\WeatherMapType::Temperatures);
-              if (!\WeatherMap\BusinessLogic\ConfigurationReader::getMapsCache() || !file_exists($filePath)) {
+              $filePath = \DimitriVranken\weather_map\BusinessLogic\PathManager::getCachedWeatherMapFile($date, \DimitriVranken\weather_map\WeatherMapType::Temperatures);
+              if (!\DimitriVranken\weather_map\BusinessLogic\ConfigurationReader::getMapsCache() || !file_exists($filePath)) {
                   // Get weather data
                   $weatherData = parent::getWeatherData($date);
 
                   // Generate map
-                  $mapGenerator = new \WeatherMap\UserInterface\TemperaturesMapGenerator($weatherData);
+                  $mapGenerator = new \DimitriVranken\weather_map\UserInterface\TemperaturesMapGenerator($weatherData);
                   $mapToCache = $mapGenerator->generateMap($weatherData);
                   
                   // Cache map
@@ -27,7 +27,7 @@
               $map = imagecreatefrompng($filePath);
               
               // Enable transparency
-              $map = \WeatherMap\UserInterface\ImageHelper::enableTransparency($map);
+              $map = \DimitriVranken\weather_map\UserInterface\ImageHelper::enableTransparency($map);
 
               // Return map
               return $map;

@@ -16,13 +16,13 @@ require_once('php/BusinessLogic/WeatherMapGenerator.php');
 require_once('php/HttpParameterHelper.php');
 
 // Check caches
-\WeatherMap\BusinessLogic\WeatherMapGenerator::checkWeatherDataCache();
+\DimitriVranken\weather_map\BusinessLogic\WeatherMapGenerator::checkWeatherDataCache();
 
 // Get the HTTP parameters
 $dateHttpParameter = $_GET['date'];
 $date = null;
 
-if (isset($dateHttpParameter) && \WeatherMap\HttpParameterHelper::hasValue($dateHttpParameter)) {
+if (isset($dateHttpParameter) && \DimitriVranken\weather_map\HttpParameterHelper::hasValue($dateHttpParameter)) {
     $date = strtotime($dateHttpParameter);
 }
 
@@ -33,7 +33,7 @@ $invalidDate = time() - (60 * 60 * 24);
 if ($date == null || $date == false || date == '') { // Date couldn't be obtained
     $date = $defaultDate;
 }
-else if (!\WeatherMap\BusinessLogic\ParameterValidator::isRequestedMapDateValid($date)) { // Obtained date is invalid
+else if (!\DimitriVranken\weather_map\BusinessLogic\ParameterValidator::isRequestedMapDateValid($date)) { // Obtained date is invalid
     header('Location: index.php');
 }
 
@@ -42,10 +42,10 @@ $dateISO8601 = date('Y-m-d', $date);
 $dateHumanReadable = date('d. M Y', $date);
 $dateDayOfWeek = null;
 
-if (\WeatherMap\BusinessLogic\DateTimeHelper::isToday($date)) {
+if (\DimitriVranken\weather_map\BusinessLogic\DateTimeHelper::isToday($date)) {
     $dateDayOfWeek = 'Today';
 }
-else if (\WeatherMap\BusinessLogic\DateTimeHelper::isTomorrow($date)) {
+else if (\DimitriVranken\weather_map\BusinessLogic\DateTimeHelper::isTomorrow($date)) {
     $dateDayOfWeek = 'Tomorrow';
 }
 else {
@@ -100,7 +100,7 @@ else {
     ?>
 
     <?php
-    if (WeatherMap\BusinessLogic\ConfigurationReader::getDebugMode()) {
+    if (DimitriVranken\weather_map\BusinessLogic\ConfigurationReader::getDebugMode()) {
         echo "Parsed date: $dateDayOfWeek ($dateISO8601)";
     }
     ?>
