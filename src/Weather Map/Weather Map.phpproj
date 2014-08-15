@@ -80,6 +80,7 @@
     <Folder Include="php\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".htaccess" />
     <Content Include="media\icons\pollination\moderate.png" />
     <Content Include="media\icons\pollination\strong.png" />
     <Content Include="media\icons\pollination\weak.png" />
