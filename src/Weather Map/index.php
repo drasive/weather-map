@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 
 <?php
-// TODO: Full qualified names/ requires (linux)
-// TODO: File operations (linux)
-
-// TODO: Improve load times of cached images (add caching to http request?)
-
 // TODO: Check if the webservice can be reached or show an error
 
 // Includes
@@ -140,6 +135,12 @@ else {
                         <li>
                             <h2 class="image-title">Pollination</h2>
                             <?php echo generateMapImageElement('pollination_map.php', 'Shows the level of pollination of a region.'); ?>
+
+                            <h3>Pollination levels</h3>
+                            Green = none<br />
+                            Yellow = weak<br />
+                            Orange = moderate<br />
+                            Red = strong
                         </li>
                     </ul>
                 </section>
