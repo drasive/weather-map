@@ -70,14 +70,12 @@
     <Folder Include="media\icons\pollination\" />
     <Folder Include="media\icons\weather\" />
     <Folder Include="media\images\" />
-    <Folder Include="data\" />
-    <Folder Include="scripts\" />
+    <Folder Include="js\" />
     <Folder Include="src\DataAccess\" />
     <Folder Include="src\BusinessLogic\" />
     <Folder Include="src\UserInterface\" />
     <Folder Include="style\css\" />
     <Folder Include="style\fonts\" />
-    <Folder Include="_Project Management\" />
     <Folder Include="style\" />
     <Folder Include="src\" />
   </ItemGroup>
@@ -112,15 +110,15 @@
     <Content Include="media\icons\sun.ico" />
     <Content Include="media\images\batman_ironman_spider-man.jpg" />
     <Content Include="media\images\kid_lolly_cat.jpg" />
-    <Content Include="scripts\bootstrap.js" />
-    <Content Include="scripts\bootstrap.min.js" />
-    <Content Include="scripts\jquery.cookies.js" />
-    <Content Include="scripts\jquery.cookies.min.js" />
-    <Content Include="scripts\jquery.easing.min.js" />
-    <Content Include="scripts\jquery.flexslider-min.js" />
-    <Content Include="scripts\jquery.flexslider.js" />
-    <Content Include="scripts\storage.js" />
-    <Content Include="scripts\style.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery.cookies.js" />
+    <Content Include="js\jquery.cookies.min.js" />
+    <Content Include="js\jquery.easing.min.js" />
+    <Content Include="js\jquery.flexslider-min.js" />
+    <Content Include="js\jquery.flexslider.js" />
+    <Content Include="js\storage.js" />
+    <Content Include="js\style.js" />
     <Content Include="style\css\bootstrap-theme.css" />
     <Content Include="style\css\bootstrap-theme.css.map" />
     <Content Include="style\css\bootstrap-theme.min.css" />
@@ -143,9 +141,5 @@
     <Content Include="style\fonts\space_invaders.svg" />
     <Content Include="style\fonts\space_invaders.ttf" />
     <Content Include="style\fonts\space_invaders.woff" />
-    <Content Include="_Project Management\Selection of day.png" />
-    <Content Include="_Project Management\Selection of map.png" />
-    <Content Include="_Project Management\Concept.docx" />
-    <Content Include="_Project Management\Concept.pdf" />
   </ItemGroup>
 </Project>
