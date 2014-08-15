@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 
 <?php
-// TODO: Check if the webservice can be reached or show an error
-
 // Includes
 require_once('php/BusinessLogic/DateTimeHelper.php');
 require_once('php/BusinessLogic/ParameterValidator.php');
