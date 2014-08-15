@@ -172,3 +172,9 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+
+
+
+## Project specific, manual excludes
+# Cached data
+src/Weather Map/data/cache
