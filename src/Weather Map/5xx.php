@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Dimitri Vranken" />
 
-    <title>Error - Weather Map</title>
+    <title>Server Error - Weather Map</title>
     <link rel="shortcut icon" href="media/icons/sun.ico">
 
     <!-- jQuery -->
@@ -27,7 +27,7 @@
     <div class="content">
         <div class="container special-content">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <h1 class="error">Error.</h1>
+                <h1 class="error">Server Error.</h1>
                 <h2 class="error">I fucked up, sorry!</h2>
                 <p class="lead">
                     Back to the <a href="index.php">Homepage</a>.
