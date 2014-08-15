@@ -19,7 +19,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="about.php" />
-    <Compile Include="not_found.php" />
     <Compile Include="php\BusinessLogic\PathManager.php" />
     <Compile Include="php\BusinessLogic\ParameterValidator.php" />
     <Compile Include="php\BusinessLogic\PollinationMapGenerator.php" />
@@ -42,7 +41,7 @@
     <Compile Include="pollination_map.php" />
     <Compile Include="temperatures_map.php" />
     <Compile Include="configuration.ini" />
-    <Compile Include="error.php" />
+    <Compile Include="errors\5xx.php" />
     <Compile Include="includes\warnings.inc.php" />
     <Compile Include="index.php" />
     <Compile Include="php\BusinessLogic\ConditionsMapGenerator.php" />
