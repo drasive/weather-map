@@ -32,5 +32,5 @@ The project is developed using Visual Studio 2013 with the plugin "PHP Tools for
 ![Temperatures map](/docs/_source/temperatures_map.png "Temperatures map")
 
 ## License
-The files in this repository are generally released under the MIT License, but some sub-parts (libraries etc.) may be licensed separately.  
+This repository is released under the GPLv3 license.  
 Please see the [license file](LICENSE) for further information.
